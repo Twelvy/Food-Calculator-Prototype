@@ -15,6 +15,10 @@
 		25B8B7432493A9D400870F32 /* Food_Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 25B8B7412493A9D400870F32 /* Food_Calculator.xcdatamodeld */; };
 		25B8B7452493A9D600870F32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25B8B7442493A9D600870F32 /* Assets.xcassets */; };
 		25B8B7482493A9D600870F32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25B8B7462493A9D600870F32 /* LaunchScreen.storyboard */; };
+		25B8B7502493B76400870F32 /* FoodDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B8B74F2493B76400870F32 /* FoodDatabase.swift */; };
+		25B8B7522493B93000870F32 /* FoodInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B8B7512493B93000870F32 /* FoodInformation.swift */; };
+		25B8B7542493C01D00870F32 /* FoodDatabaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B8B7532493C01D00870F32 /* FoodDatabaseViewController.swift */; };
+		25B8B7562495C97300870F32 /* AddFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B8B7552495C97300870F32 /* AddFoodViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		25B8B7442493A9D600870F32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25B8B7472493A9D600870F32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25B8B7492493A9D600870F32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25B8B74F2493B76400870F32 /* FoodDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDatabase.swift; sourceTree = "<group>"; };
+		25B8B7512493B93000870F32 /* FoodInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInformation.swift; sourceTree = "<group>"; };
+		25B8B7532493C01D00870F32 /* FoodDatabaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDatabaseViewController.swift; sourceTree = "<group>"; };
+		25B8B7552495C97300870F32 /* AddFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +77,10 @@
 				25B8B7462493A9D600870F32 /* LaunchScreen.storyboard */,
 				25B8B7492493A9D600870F32 /* Info.plist */,
 				25B8B7412493A9D400870F32 /* Food_Calculator.xcdatamodeld */,
+				25B8B74F2493B76400870F32 /* FoodDatabase.swift */,
+				25B8B7512493B93000870F32 /* FoodInformation.swift */,
+				25B8B7532493C01D00870F32 /* FoodDatabaseViewController.swift */,
+				25B8B7552495C97300870F32 /* AddFoodViewController.swift */,
 			);
 			path = "Food Calculator";
 			sourceTree = "<group>";
@@ -145,9 +157,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				25B8B73D2493A9D400870F32 /* SecondViewController.swift in Sources */,
+				25B8B7522493B93000870F32 /* FoodInformation.swift in Sources */,
 				25B8B7432493A9D400870F32 /* Food_Calculator.xcdatamodeld in Sources */,
 				25B8B73B2493A9D400870F32 /* FirstViewController.swift in Sources */,
+				25B8B7562495C97300870F32 /* AddFoodViewController.swift in Sources */,
 				25B8B7372493A9D400870F32 /* AppDelegate.swift in Sources */,
+				25B8B7502493B76400870F32 /* FoodDatabase.swift in Sources */,
+				25B8B7542493C01D00870F32 /* FoodDatabaseViewController.swift in Sources */,
 				25B8B7392493A9D400870F32 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
