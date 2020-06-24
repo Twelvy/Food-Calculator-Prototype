@@ -69,13 +69,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="GON-H1-9OV">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="GON-H1-9OV" customClass="FoodCell" customModule="Food_Calculator" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GON-H1-9OV" id="wa6-xR-SHO">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="wqG-8D-Q9e" kind="show" identifier="editFood" id="XpI-Wk-IL6"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -86,7 +89,7 @@
                     <navigationItem key="navigationItem" title="Food database" id="BoF-rf-Deg">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="Oqp-2P-laW">
                             <connections>
-                                <segue destination="FpX-1E-NRh" kind="popoverPresentation" popoverAnchorBarButtonItem="Oqp-2P-laW" id="oYn-nG-QZu">
+                                <segue destination="FpX-1E-NRh" kind="popoverPresentation" identifier="addFood" popoverAnchorBarButtonItem="Oqp-2P-laW" id="oYn-nG-QZu">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>
@@ -95,7 +98,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gdW-5W-Hqz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1549" y="359"/>
+            <point key="canvasLocation" x="1645" y="359"/>
         </scene>
         <!--Add food-->
         <scene sceneID="cPB-j1-TTl">
@@ -147,7 +150,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CM9-qg-pTS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="81o-S6-Lxg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3221.739130434783" y="358.92857142857139"/>
+            <point key="canvasLocation" x="2561" y="1106"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tU7-bY-77o">
@@ -163,7 +166,23 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xuO-zb-pFZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2372" y="359"/>
+            <point key="canvasLocation" x="1645" y="1106"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Skt-5K-0gX">
+            <objects>
+                <viewController id="wqG-8D-Q9e" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4oD-y7-pqs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ZJu-wo-uCa"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LAQ-ag-TxK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="06L-Ed-dwS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2558" y="359"/>
         </scene>
         <!--Database-->
         <scene sceneID="R58-Mc-W1H">

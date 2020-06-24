@@ -9,10 +9,12 @@
 import Foundation
 
 struct FoodInformation {
+    let primaryKey: Int
     var name: String
     var kCal: Float
     
-    init(foodName: String, kcal: Float) {
+    init(key: Int, foodName: String, kcal: Float) {
+        primaryKey = key
         name = foodName
         kCal = kcal
     }

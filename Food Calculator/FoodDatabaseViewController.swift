@@ -13,8 +13,10 @@ class FoodDatabaseViewController : UITableViewController {
     private var database: FoodDatabase? = nil;
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         let app = UIApplication.shared.delegate as! AppDelegate
         database = app.foodDatabase
+        navigationItem.leftBarButtonItem = editButtonItem
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -27,8 +29,15 @@ class FoodDatabaseViewController : UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let foodCell = cell as! FoodCell
         let food = database!.getFoodInformation(index: indexPath.row)
-        cell.textLabel!.text = food.name
+        if food == nil {
+            cell.textLabel!.text = "error"
+        }
+        else {
+            cell.textLabel!.text = food!.name
+            foodCell.primaryKey = food!.primaryKey
+        }
         return cell
     }
 
@@ -37,16 +46,15 @@ class FoodDatabaseViewController : UITableViewController {
         return true
     }
 
-    /*
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            objects.remove(at: indexPath.row)
+            let foodCell = tableView.cellForRow(at: indexPath) as! FoodCell
+            database?.deleteFood(key: foodCell.primaryKey)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
-    */
     
     @IBAction func cancel(_ unwindSegue: UIStoryboardSegue) {
     }
@@ -56,7 +64,12 @@ class FoodDatabaseViewController : UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let controller = (segue.destination as! UINavigationController).topViewController as! AddFoodViewController
-        controller.setDatabase(database: database!)
+        if segue.identifier == "addFood" {
+            let controller = (segue.destination as! UINavigationController).topViewController as! AddFoodViewController
+            controller.setDatabase(database: database!)
+        }
+        else if segue.identifier == "editFood" {
+            
+        }
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2522A738249D074F00720B7E /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522A737249D074F00720B7E /* FoodCell.swift */; };
+		2522A74024A2375F00720B7E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2522A73A249DE78C00720B7E /* libsqlite3.tbd */; };
 		25B8B7372493A9D400870F32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B8B7362493A9D400870F32 /* AppDelegate.swift */; };
 		25B8B7392493A9D400870F32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B8B7382493A9D400870F32 /* SceneDelegate.swift */; };
 		25B8B73B2493A9D400870F32 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B8B73A2493A9D400870F32 /* FirstViewController.swift */; };
@@ -22,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2522A737249D074F00720B7E /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
+		2522A73A249DE78C00720B7E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		2522A73B24A224F300720B7E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		25B8B7332493A9D400870F32 /* Food Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B8B7362493A9D400870F32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25B8B7382493A9D400870F32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,17 +48,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2522A74024A2375F00720B7E /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2522A739249DE78B00720B7E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2522A73B24A224F300720B7E /* CoreData.framework */,
+				2522A73A249DE78C00720B7E /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		25B8B72A2493A9D400870F32 = {
 			isa = PBXGroup;
 			children = (
 				25B8B7352493A9D400870F32 /* Food Calculator */,
 				25B8B7342493A9D400870F32 /* Products */,
+				2522A739249DE78B00720B7E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +97,7 @@
 				25B8B7512493B93000870F32 /* FoodInformation.swift */,
 				25B8B7532493C01D00870F32 /* FoodDatabaseViewController.swift */,
 				25B8B7552495C97300870F32 /* AddFoodViewController.swift */,
+				2522A737249D074F00720B7E /* FoodCell.swift */,
 			);
 			path = "Food Calculator";
 			sourceTree = "<group>";
@@ -163,6 +180,7 @@
 				25B8B7562495C97300870F32 /* AddFoodViewController.swift in Sources */,
 				25B8B7372493A9D400870F32 /* AppDelegate.swift in Sources */,
 				25B8B7502493B76400870F32 /* FoodDatabase.swift in Sources */,
+				2522A738249D074F00720B7E /* FoodCell.swift in Sources */,
 				25B8B7542493C01D00870F32 /* FoodDatabaseViewController.swift in Sources */,
 				25B8B7392493A9D400870F32 /* SceneDelegate.swift in Sources */,
 			);
