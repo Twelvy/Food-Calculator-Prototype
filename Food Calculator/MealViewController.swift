@@ -1,16 +1,18 @@
 //
-//  FoodDatabaseViewController.swift
+//  MealViewController.swift
 //  Food Calculator
 //
-//  Created by Aurélien Sérandour on 6/12/20.
+//  Created by Aurélien Sérandour on 6/26/20.
 //  Copyright © 2020 Aurélien Sérandour. All rights reserved.
 //
 
 import UIKit
 
-class FoodDatabaseViewController : UITableViewController {
+class MealViewController : UITableViewController {
     
     private var database: FoodDatabase? = nil;
+    private var mealTime: MealTime = .Breakfast
+    private var mealDate: String? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,19 +20,30 @@ class FoodDatabaseViewController : UITableViewController {
         database = app.foodDatabase
     }
     
+    func setup(meal: MealTime, date: String) {
+        mealTime = meal
+        mealDate = date
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return database!.getFoodCount()
+        return database!.getMealCount(date: mealDate!, time: mealTime)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let foodCell = cell as! FoodCell
-        let food = database!.getFoodInformation(index: indexPath.row)
-        foodCell.setInfo(info: food)
+        let info = database!.getMealInfo(date: mealDate!, time: mealTime, index: indexPath.row)
+        if info != nil {
+            cell.textLabel?.text = info!.foodName
+            cell.detailTextLabel?.text = String(info!.weight)
+        }
+        else {
+            cell.textLabel?.text = "error"
+        }
+        
         return cell
     }
 
@@ -46,28 +59,6 @@ class FoodDatabaseViewController : UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-        }
-    }
-    
-    @IBAction func cancel(_ unwindSegue: UIStoryboardSegue) {
-    }
-
-    @IBAction func foodAdded(_ unwindSegue: UIStoryboardSegue) {
-        tableView.reloadData()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addFood" {
-            let controller = (segue.destination as! UINavigationController).topViewController as! AddFoodViewController
-            controller.setDatabase(database: database!)
-        }
-        else if segue.identifier == "editFood" {
-            let controller = segue.destination as! EditFoodViewController
-            controller.setDatabase(database: database!)
-            let indexPath = tableView.indexPathForSelectedRow!
-            let cell = tableView.cellForRow(at: indexPath)
-            let foodCell = cell as! FoodCell
-            controller.setFoodId(key: foodCell.primaryKey)
         }
     }
 }
