@@ -33,7 +33,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="49e-Tb-3d3" kind="show" id="1so-QC-0Ff"/>
+                                    <segue destination="49e-Tb-3d3" kind="show" identifier="show" id="1so-QC-0Ff"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -42,7 +42,13 @@
                             <outlet property="delegate" destination="ENK-1c-6C6" id="DU4-Ev-cnJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Lms-aH-ZjZ"/>
+                    <navigationItem key="navigationItem" id="Lms-aH-ZjZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="bTd-87-laI">
+                            <connections>
+                                <action selector="addDay:" destination="ENK-1c-6C6" id="CgQ-H6-yAe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4TC-N6-BWS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -52,7 +58,15 @@
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" userLabel="Daily" customClass="DailyTabBarController" customModule="Food_Calculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="r5g-sz-neE"/>
+                    <navigationItem key="navigationItem" id="r5g-sz-neE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="q7a-eg-EAk">
+                            <connections>
+                                <segue destination="eX9-7o-nYW" kind="popoverPresentation" popoverAnchorBarButtonItem="q7a-eg-EAk" id="l8n-2p-PxP">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -69,6 +83,77 @@
             </objects>
             <point key="canvasLocation" x="2561" y="-444"/>
         </scene>
+        <!--Choose food-->
+        <scene sceneID="RgB-nb-bE4">
+            <objects>
+                <tableViewController id="wii-Jn-UIJ" userLabel="Choose food" customClass="ChooseFoodViewController" customModule="Food_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mcb-o3-Rws">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="pK7-uz-mgY" detailTextLabel="aGB-Hh-fty" style="IBUITableViewCellStyleValue1" id="FJE-9n-tCd" customClass="FoodCell" customModule="Food_Calculator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FJE-9n-tCd" id="AZV-uB-Yt6">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pK7-uz-mgY">
+                                            <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aGB-Hh-fty">
+                                            <rect key="frame" x="350" y="12" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="fll-hH-zZ0" kind="unwind" unwindAction="addMeal:" id="Bxa-pH-ens"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wii-Jn-UIJ" id="MWq-6z-1jF"/>
+                            <outlet property="delegate" destination="wii-Jn-UIJ" id="8Ac-Xi-DYj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Choose food" id="Uww-aQ-G2Y">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Wvt-Sr-dvq">
+                            <connections>
+                                <segue destination="fll-hH-zZ0" kind="unwind" unwindAction="cancel:" id="24T-Cx-fkp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cwr-3X-uQh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="fll-hH-zZ0" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4462" y="-1217"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="y7M-BB-gBJ">
+            <objects>
+                <navigationController id="eX9-7o-nYW" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ws7-th-XLf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wii-Jn-UIJ" kind="relationship" relationship="rootViewController" id="w19-Ed-CIB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PPn-xK-zWT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3480" y="-1217"/>
+        </scene>
         <!--Meal-->
         <scene sceneID="NHH-hR-rlw">
             <objects>
@@ -78,7 +163,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Im7-Vr-jBz" detailTextLabel="SX2-yE-JLU" style="IBUITableViewCellStyleValue1" id="pTt-iv-utI">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Im7-Vr-jBz" detailTextLabel="SX2-yE-JLU" style="IBUITableViewCellStyleValue1" id="pTt-iv-utI" customClass="MealCell" customModule="Food_Calculator" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pTt-iv-utI" id="dJf-NW-dV1">
@@ -112,7 +197,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUp-LH-Jy5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3559" y="-1132"/>
+            <point key="canvasLocation" x="3481" y="-445"/>
         </scene>
         <!--Food Database-->
         <scene sceneID="r2w-9h-Lfr">

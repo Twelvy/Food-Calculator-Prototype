@@ -528,12 +528,12 @@ class FoodDatabase {
             else if sqlite3_bind_int(statement, 2, meal.rawValue) != SQLITE_OK {
                 print("Error when binding double")
             }
-                else if sqlite3_bind_int64(statement, 3, sqlite3_int64(foodKey)) != SQLITE_OK {
-                    print("Error when binding double")
-                }
-                else if sqlite3_bind_double(statement, 4, Double(weight)) != SQLITE_OK {
-                    print("Error when binding double")
-                }
+            else if sqlite3_bind_int64(statement, 3, sqlite3_int64(foodKey)) != SQLITE_OK {
+                print("Error when binding double")
+            }
+            else if sqlite3_bind_double(statement, 4, Double(weight)) != SQLITE_OK {
+                print("Error when binding double")
+            }
             else {
                 if sqlite3_step(statement) == SQLITE_DONE {
                     print("Meal inserted")
@@ -549,6 +549,31 @@ class FoodDatabase {
         }
         sqlite3_finalize(statement)
     }
-    // remove meal
+    
+    func deleteMeal(key: Int) {
+        var statement: OpaquePointer? = nil
+        let statementStr = """
+            DELETE FROM Meals (
+            WHERE Id=?;
+            """
+        if sqlite3_prepare_v2(db, statementStr, -1, &statement, nil) == SQLITE_OK {
+            if sqlite3_bind_int64(statement, 1, sqlite3_int64(key)) != SQLITE_OK {
+                print("Error when binding Id")
+            }
+            else {
+                if sqlite3_step(statement) == SQLITE_DONE {
+                    print("Meal removed")
+                }
+                else {
+                    print("Failed to remove meal")
+                }
+            }
+        }
+        else {
+            print("Error when preparing statement")
+        }
+        sqlite3_finalize(statement)
+    }
+    
     // calculate
 }

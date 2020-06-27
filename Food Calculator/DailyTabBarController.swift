@@ -10,6 +10,8 @@ import UIKit
 
 class DailyTabBarController : UITabBarController {
     
+    var mealDate: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,17 +42,33 @@ class DailyTabBarController : UITabBarController {
         if viewControllers != nil {
             let count = viewControllers!.count
             if count > 0 {
-                (viewControllers![0] as! MealViewController).setup(meal: .Breakfast, date: "2020-01-01")
+                (viewControllers![0] as! MealViewController).setup(meal: .Breakfast, date: mealDate!)
             }
             if count > 1 {
-                (viewControllers![1] as! MealViewController).setup(meal: .Lunch, date: "2020-01-01")
+                (viewControllers![1] as! MealViewController).setup(meal: .Lunch, date: mealDate!)
             }
             if count > 2 {
-                (viewControllers![2] as! MealViewController).setup(meal: .Dinner, date: "2020-01-01")
+                (viewControllers![2] as! MealViewController).setup(meal: .Dinner, date: mealDate!)
             }
             if count > 3 {
-                (viewControllers![3] as! MealViewController).setup(meal: .Treats, date: "2020-01-01")
+                (viewControllers![3] as! MealViewController).setup(meal: .Treats, date: mealDate!)
             }
         }
+    }
+    
+    func setDate(date: String?) {
+        mealDate = date
+    }
+    
+    @IBAction func cancel(_ unwindSegue: UIStoryboardSegue) {
+        // nothing to do
+    }
+    
+    @IBAction func addMeal(_ unwindSegue: UIStoryboardSegue) {
+        guard let src = unwindSegue.source as? ChooseFoodViewController,
+            let foodKey = src.selectedFoodKey else {
+            return
+        }
+        (viewControllers![selectedIndex] as! MealViewController).addMeal(foodId: foodKey)
     }
 }

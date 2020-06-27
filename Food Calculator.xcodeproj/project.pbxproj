@@ -13,6 +13,9 @@
 		253F127024A4D5A400E77836 /* DailyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253F126F24A4D5A400E77836 /* DailyTabBarController.swift */; };
 		253F127224A4E86C00E77836 /* MealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253F127124A4E86C00E77836 /* MealsTableViewController.swift */; };
 		253F127424A4FA5600E77836 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253F127324A4FA5600E77836 /* MealViewController.swift */; };
+		253F127624A6342500E77836 /* FoodDatabaseViewControllerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253F127524A6342500E77836 /* FoodDatabaseViewControllerBase.swift */; };
+		253F127824A6370D00E77836 /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253F127724A6370D00E77836 /* MealCell.swift */; };
+		253F127A24A639C700E77836 /* ChooseFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253F127924A639C700E77836 /* ChooseFoodViewController.swift */; };
 		25B8B7372493A9D400870F32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B8B7362493A9D400870F32 /* AppDelegate.swift */; };
 		25B8B7392493A9D400870F32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B8B7382493A9D400870F32 /* SceneDelegate.swift */; };
 		25B8B73B2493A9D400870F32 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B8B73A2493A9D400870F32 /* FirstViewController.swift */; };
@@ -35,6 +38,9 @@
 		253F126F24A4D5A400E77836 /* DailyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTabBarController.swift; sourceTree = "<group>"; };
 		253F127124A4E86C00E77836 /* MealsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsTableViewController.swift; sourceTree = "<group>"; };
 		253F127324A4FA5600E77836 /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
+		253F127524A6342500E77836 /* FoodDatabaseViewControllerBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDatabaseViewControllerBase.swift; sourceTree = "<group>"; };
+		253F127724A6370D00E77836 /* MealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCell.swift; sourceTree = "<group>"; };
+		253F127924A639C700E77836 /* ChooseFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFoodViewController.swift; sourceTree = "<group>"; };
 		25B8B7332493A9D400870F32 /* Food Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B8B7362493A9D400870F32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25B8B7382493A9D400870F32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +116,9 @@
 				253F126F24A4D5A400E77836 /* DailyTabBarController.swift */,
 				253F127124A4E86C00E77836 /* MealsTableViewController.swift */,
 				253F127324A4FA5600E77836 /* MealViewController.swift */,
+				253F127524A6342500E77836 /* FoodDatabaseViewControllerBase.swift */,
+				253F127724A6370D00E77836 /* MealCell.swift */,
+				253F127924A639C700E77836 /* ChooseFoodViewController.swift */,
 			);
 			path = "Food Calculator";
 			sourceTree = "<group>";
@@ -188,10 +197,13 @@
 				25B8B73D2493A9D400870F32 /* SecondViewController.swift in Sources */,
 				25B8B7522493B93000870F32 /* FoodInformation.swift in Sources */,
 				25B8B7432493A9D400870F32 /* Food_Calculator.xcdatamodeld in Sources */,
+				253F127624A6342500E77836 /* FoodDatabaseViewControllerBase.swift in Sources */,
 				253F127424A4FA5600E77836 /* MealViewController.swift in Sources */,
 				25B8B73B2493A9D400870F32 /* FirstViewController.swift in Sources */,
+				253F127A24A639C700E77836 /* ChooseFoodViewController.swift in Sources */,
 				253F127224A4E86C00E77836 /* MealsTableViewController.swift in Sources */,
 				25B8B7562495C97300870F32 /* AddFoodViewController.swift in Sources */,
+				253F127824A6370D00E77836 /* MealCell.swift in Sources */,
 				252BB74424A3A0B70072A6D9 /* EditFoodViewController.swift in Sources */,
 				25B8B7372493A9D400870F32 /* AppDelegate.swift in Sources */,
 				25B8B7502493B76400870F32 /* FoodDatabase.swift in Sources */,

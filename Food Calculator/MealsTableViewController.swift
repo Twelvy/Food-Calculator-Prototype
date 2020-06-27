@@ -47,4 +47,27 @@ class MealsTableViewController : UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "show" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let cell = tableView.cellForRow(at: indexPath)
+                let controller = segue.destination as! DailyTabBarController
+                controller.setDate(date: cell?.textLabel?.text)
+            }
+        }
+    }
+    
+    @IBAction func addDay(_ sender: Any) {
+        let alert = UIAlertController(title: "Choose date", message: "my date", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addTextField(configurationHandler: { (textField) in
+            textField.placeholder = "Tag"
+        })
+        alert.addTextField(configurationHandler: { (textField) in
+            textField.placeholder = "Tag2"
+        })
+        self.present(alert, animated: true, completion: nil)
+    }
 }

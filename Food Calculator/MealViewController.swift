@@ -35,15 +35,9 @@ class MealViewController : UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let mealCell = cell as! MealCell
         let info = database!.getMealInfo(date: mealDate!, time: mealTime, index: indexPath.row)
-        if info != nil {
-            cell.textLabel?.text = info!.foodName
-            cell.detailTextLabel?.text = String(info!.weight)
-        }
-        else {
-            cell.textLabel?.text = "error"
-        }
-        
+        mealCell.setInfo(info: info)
         return cell
     }
 
@@ -54,11 +48,14 @@ class MealViewController : UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let foodCell = tableView.cellForRow(at: indexPath) as! FoodCell
-            database?.deleteFood(key: foodCell.primaryKey)
+            let cell = tableView.cellForRow(at: indexPath) as! MealCell
+            database?.deleteMeal(key: cell.mealKey)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
+    }
+    
+    func addMeal(foodId: Int) {
+        database?.addMeal(date: mealDate!, meal: mealTime, foodKey: foodId, weight: 0.0)
+        tableView.reloadData()
     }
 }
