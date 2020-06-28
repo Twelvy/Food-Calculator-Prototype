@@ -57,7 +57,7 @@ class MealViewController : UITableViewController {
     override func tableView(_ tableview: UITableView, didSelectRowAt indexPath: IndexPath) {
         let mealCell = tableView.cellForRow(at: indexPath) as! MealCell
         let alert = UIAlertController(title: "Edit weight", message: "Change the weight of the food", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: { (alertAction) in
+        alert.addAction(UIAlertAction(title: "Edit", style: .destructive, handler: { _ in
             guard let txt = alert.textFields?[0].text else {
                 return
             }

@@ -41,7 +41,7 @@ class MealsTableViewController : UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let foodCell = tableView.cellForRow(at: indexPath) as! FoodCell
-            database?.deleteFood(key: foodCell.primaryKey)
+            database?.deleteFood(key: foodCell.foodInfo!.primaryKey)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

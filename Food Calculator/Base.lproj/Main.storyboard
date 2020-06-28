@@ -231,9 +231,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="wqG-8D-Q9e" kind="show" identifier="editFood" id="XpI-Wk-IL6"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -244,9 +241,7 @@
                     <navigationItem key="navigationItem" title="Food database" id="BoF-rf-Deg">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="Oqp-2P-laW">
                             <connections>
-                                <segue destination="FpX-1E-NRh" kind="popoverPresentation" identifier="addFood" popoverAnchorBarButtonItem="Oqp-2P-laW" id="oYn-nG-QZu">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <action selector="addFoodAction:" destination="726-l2-EkG" id="TkH-vN-wKa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -260,16 +255,16 @@
             <objects>
                 <viewController id="v41-Oq-7N0" userLabel="Add food" customClass="AddFoodViewController" customModule="Food_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YYL-tm-huh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WiR-BD-hCf">
-                                <rect key="frame" x="20" y="56" width="374" height="34"/>
+                                <rect key="frame" x="20" y="88" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="kCal for 100 g" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bsd-18-Ck7">
-                                <rect key="frame" x="20" y="98" width="374" height="34"/>
+                                <rect key="frame" x="20" y="130" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
@@ -312,7 +307,7 @@
             <objects>
                 <navigationController id="FpX-1E-NRh" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="X0h-LB-EuM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -332,12 +327,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TV6-B9-402">
-                                <rect key="frame" x="20" y="88" width="374" height="34"/>
+                                <rect key="frame" x="20" y="44" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="kCal for 100 g" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gzv-yt-rjj">
-                                <rect key="frame" x="20" y="130" width="374" height="34"/>
+                                <rect key="frame" x="20" y="86" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>

@@ -17,6 +17,6 @@ class ChooseFoodViewController : FoodDatabaseViewControllerBase {
             return
         }
         let cell = tableView.cellForRow(at: indexPath) as! FoodCell
-        selectedFoodKey = cell.primaryKey
+        selectedFoodKey = cell.foodInfo!.primaryKey
     }
 }
