@@ -605,4 +605,40 @@ class FoodDatabase {
     }
     
     // calculate
+    func calculateCalories(date: String, mealTime: MealTime) -> Float {
+        var statement: OpaquePointer? = nil
+        let statementStr = """
+            SELECT
+                Meals.weight,
+                Foods.kcal
+            FROM Meals
+            INNER JOIN Foods ON Meals.foodId=Foods.Id
+            WHERE Meals.date=? AND Meals.meal=?;
+            """
+        var calories: Double = 0.0;
+        if sqlite3_prepare_v2(db, statementStr, -1, &statement, nil) == SQLITE_OK {
+            if sqlite3_bind_text(statement, 1, date, -1, nil) != SQLITE_OK {
+                print("Error when binding text")
+            }
+            else if sqlite3_bind_int(statement, 2, mealTime.rawValue) != SQLITE_OK {
+                print("Error when binding int")
+            }
+            else {
+                if sqlite3_step(statement) == SQLITE_ROW {
+                    let weight = sqlite3_column_double(statement, 0)
+                    let kcal = sqlite3_column_double(statement, 1)
+                    calories += (weight * kcal)
+                }
+                else {
+                    print("Failed to get row")
+                }
+            }
+        }
+        else {
+            print("Error when preparing statement")
+        }
+        sqlite3_finalize(statement)
+        
+        return Float(calories)
+    }
 }

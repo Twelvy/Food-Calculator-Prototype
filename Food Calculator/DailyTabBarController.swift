@@ -53,6 +53,9 @@ class DailyTabBarController : UITabBarController {
             if count > 3 {
                 (viewControllers![3] as! MealViewController).setup(meal: .Treats, date: mealDate!)
             }
+            if count > 4 {
+                (viewControllers![4] as! DailySummaryViewController).setup(date: mealDate!)
+            }
         }
     }
     
