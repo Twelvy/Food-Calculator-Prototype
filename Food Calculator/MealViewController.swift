@@ -54,6 +54,32 @@ class MealViewController : UITableViewController {
         }
     }
     
+    override func tableView(_ tableview: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let mealCell = tableView.cellForRow(at: indexPath) as! MealCell
+        let alert = UIAlertController(title: "Edit weight", message: "Change the weight of the food", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: { (alertAction) in
+            guard let txt = alert.textFields?[0].text else {
+                return
+            }
+            // parse txt
+            guard let newWeight = Float(txt) else {
+                return
+            }
+            if mealCell.mealWeight != newWeight {
+                // update weight
+                self.database?.editMeal(key: mealCell.mealKey, weight: newWeight)
+                
+                // reload cell
+                self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addTextField(configurationHandler: { (textField) in
+            textField.text = String(mealCell.mealWeight)
+        })
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func addMeal(foodId: Int) {
         database?.addMeal(date: mealDate!, meal: mealTime, foodKey: foodId, weight: 0.0)
         tableView.reloadData()

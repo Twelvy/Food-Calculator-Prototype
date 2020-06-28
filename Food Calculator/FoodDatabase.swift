@@ -463,7 +463,7 @@ class FoodDatabase {
         let statementStr = """
             SELECT
                 Meals.Id,
-                Foods.Id,
+                Meals.foodId,
                 Foods.name,
                 Meals.weight
             FROM Meals
@@ -566,6 +566,35 @@ class FoodDatabase {
                 }
                 else {
                     print("Failed to remove meal")
+                }
+            }
+        }
+        else {
+            print("Error when preparing statement")
+        }
+        sqlite3_finalize(statement)
+    }
+    
+    func editMeal(key: Int, weight: Float) {
+        var statement: OpaquePointer? = nil
+        let statementStr = """
+            UPDATE Meals SET
+                weight=?
+            WHERE Id=?;
+            """
+        if sqlite3_prepare_v2(db, statementStr, -1, &statement, nil) == SQLITE_OK {
+            if sqlite3_bind_double(statement, 1, Double(weight)) != SQLITE_OK {
+                print("Error when binding double")
+            }
+            else if sqlite3_bind_int64(statement, 2, sqlite3_int64(key)) != SQLITE_OK {
+                print("Error when binding Id")
+            }
+            else {
+                if sqlite3_step(statement) == SQLITE_DONE {
+                    print("Meal edited")
+                }
+                else {
+                    print("Failed to edit meal")
                 }
             }
         }
