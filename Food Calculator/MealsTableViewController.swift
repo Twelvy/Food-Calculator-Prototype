@@ -50,24 +50,69 @@ class MealsTableViewController : UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "show" {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let cell = tableView.cellForRow(at: indexPath)
-                let controller = segue.destination as! DailyTabBarController
-                controller.setDate(date: cell?.textLabel?.text)
+            let controller = segue.destination as! DailyTabBarController
+            var newDate = sender as? String
+            if newDate == nil {
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    let cell = tableView.cellForRow(at: indexPath)
+                    newDate = cell?.textLabel?.text
+                }
             }
+            controller.setDate(date: newDate)
         }
     }
     
     @IBAction func addDay(_ sender: Any) {
         let alert = UIAlertController(title: "Choose date", message: "my date", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            guard let year = MealsTableViewController.readInt(text: alert.textFields?[0].text),
+                let month = MealsTableViewController.readInt(text: alert.textFields?[1].text),
+                let day = MealsTableViewController.readInt(text: alert.textFields?[2].text) else {
+                    self.showDateError()
+                    return
+            }
+            let d = DateComponents(calendar: Calendar.current, year: year, month: month, day: day)
+            if d.isValidDate {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd"
+                let newDate = formatter.string(from: d.date!)
+                self.performSegue(withIdentifier: "show", sender: newDate)
+            }
+            else {
+                self.showDateError()
+            }
+        }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        let date = Date()
+        let calendar = Calendar.current
+        let todayYear = calendar.component(.year, from: date)
+        let todayMonth = calendar.component(.month, from: date)
+        let todayDay = calendar.component(.day, from: date)
+        
         alert.addTextField(configurationHandler: { (textField) in
-            textField.placeholder = "Tag"
+            textField.placeholder = "Year"
+            textField.text = String(todayYear)
         })
         alert.addTextField(configurationHandler: { (textField) in
-            textField.placeholder = "Tag2"
+            textField.placeholder = "Month"
+            textField.text = String(todayMonth)
+        })
+        alert.addTextField(configurationHandler: { (textField) in
+            textField.placeholder = "Day"
+            textField.text = String(todayDay)
         })
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    private static func readInt(text: String?) -> Int? {
+        if text == nil || text!.isEmpty {
+            return nil
+        }
+        return Int(text!)
+    }
+    
+    private func showDateError() {
+        let alert = UIAlertController(title: "Error in date", message: "input a correct date", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
     }
 }
