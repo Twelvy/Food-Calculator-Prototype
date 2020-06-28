@@ -553,7 +553,7 @@ class FoodDatabase {
     func deleteMeal(key: Int) {
         var statement: OpaquePointer? = nil
         let statementStr = """
-            DELETE FROM Meals (
+            DELETE FROM Meals
             WHERE Id=?;
             """
         if sqlite3_prepare_v2(db, statementStr, -1, &statement, nil) == SQLITE_OK {
