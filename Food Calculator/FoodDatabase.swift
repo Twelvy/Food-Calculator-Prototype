@@ -660,7 +660,7 @@ class FoodDatabase {
                     calories += (weight * kcal)
                 }
                 else {
-                    print("Failed to get row")
+                    // no row, so nothing to calculate
                 }
             }
         }

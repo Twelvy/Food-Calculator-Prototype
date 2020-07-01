@@ -44,11 +44,11 @@ extension DateViewController: JTACMonthViewDataSource {
         //let endDate = Date()
         let now = Date()
         let components = Calendar.current.dateComponents([.year, .month], from: now)
-        let dc = DateComponents(calendar: Calendar.current, year: (components.year! - 1), month: components.month, day: 1)
+        let dc = DateComponents(calendar: Calendar.current, year: components.year, month: components.month! - 1, day: 1)
         
         let startDate = dc.date!
         
-        let dc2 = DateComponents(calendar: Calendar.current, year: (components.year! + 1), month: components.month, day: 1)
+        let dc2 = DateComponents(calendar: Calendar.current, year: components.year, month: components.month! + 1, day: 1)
         let endDate = dc2.date!
         
         return ConfigurationParameters(startDate: startDate, endDate: endDate, generateInDates: .forAllMonths, generateOutDates: .tillEndOfRow, firstDayOfWeek: .monday)

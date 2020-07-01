@@ -15,6 +15,8 @@ class DailyTabBarController : UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = mealDate
+        
         if tabBar.items != nil {
             let count = tabBar.items!.count
             if count > 0 {
