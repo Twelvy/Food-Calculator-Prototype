@@ -7,9 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2518BD9824AB767C00D0DE8A /* JTACMonthLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD7F24AB767A00D0DE8A /* JTACMonthLayout.swift */; };
+		2518BD9924AB767C00D0DE8A /* JTACInteractionMonthFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD8024AB767A00D0DE8A /* JTACInteractionMonthFunctions.swift */; };
+		2518BD9A24AB767C00D0DE8A /* JTACScrollViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD8224AB767B00D0DE8A /* JTACScrollViewDelegates.swift */; };
+		2518BD9C24AB767C00D0DE8A /* JTACVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD8424AB767B00D0DE8A /* JTACVariables.swift */; };
+		2518BD9D24AB767C00D0DE8A /* CalendarEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD8524AB767B00D0DE8A /* CalendarEnums.swift */; };
+		2518BD9E24AB767C00D0DE8A /* JTACMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD8624AB767B00D0DE8A /* JTACMonthView.swift */; };
+		2518BD9F24AB767C00D0DE8A /* JTACMonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD8724AB767B00D0DE8A /* JTACMonthCell.swift */; };
+		2518BDA024AB767C00D0DE8A /* JTACMonthReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD8824AB767B00D0DE8A /* JTACMonthReusableView.swift */; };
+		2518BDA124AB767C00D0DE8A /* JTACDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD8924AB767B00D0DE8A /* JTACDayCell.swift */; };
+		2518BDA224AB767C00D0DE8A /* JTACMonthLayoutVerticalCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD8A24AB767B00D0DE8A /* JTACMonthLayoutVerticalCalendar.swift */; };
+		2518BDA324AB767C00D0DE8A /* GlobalFunctionsAndExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD8B24AB767B00D0DE8A /* GlobalFunctionsAndExtensions.swift */; };
+		2518BDA424AB767C00D0DE8A /* CalendarStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD8C24AB767B00D0DE8A /* CalendarStructs.swift */; };
+		2518BDA524AB767C00D0DE8A /* JTACInteractionYearFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD8D24AB767B00D0DE8A /* JTACInteractionYearFunctions.swift */; };
+		2518BDA624AB767C00D0DE8A /* JTACCollectionMonthViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD8E24AB767B00D0DE8A /* JTACCollectionMonthViewDelegates.swift */; };
+		2518BDA724AB767C00D0DE8A /* JTACMonthViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD8F24AB767B00D0DE8A /* JTACMonthViewProtocols.swift */; };
+		2518BDA824AB767C00D0DE8A /* JTACMonthActionFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD9024AB767C00D0DE8A /* JTACMonthActionFunctions.swift */; };
+		2518BDA924AB767C00D0DE8A /* JTACMonthQueryFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD9124AB767C00D0DE8A /* JTACMonthQueryFunctions.swift */; };
+		2518BDAA24AB767C00D0DE8A /* JTACMonthLayoutHorizontalCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD9224AB767C00D0DE8A /* JTACMonthLayoutHorizontalCalendar.swift */; };
+		2518BDAB24AB767C00D0DE8A /* JTACCollectionYearViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD9324AB767C00D0DE8A /* JTACCollectionYearViewDelegates.swift */; };
+		2518BDAC24AB767C00D0DE8A /* JTACMonthDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD9424AB767C00D0DE8A /* JTACMonthDelegateProtocol.swift */; };
+		2518BDAD24AB767C00D0DE8A /* JTACYearViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD9524AB767C00D0DE8A /* JTACYearViewProtocols.swift */; };
+		2518BDAE24AB767C00D0DE8A /* JTACYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD9624AB767C00D0DE8A /* JTACYearView.swift */; };
+		2518BDAF24AB767C00D0DE8A /* JTACMonthLayoutProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BD9724AB767C00D0DE8A /* JTACMonthLayoutProtocol.swift */; };
 		2522A738249D074F00720B7E /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2522A737249D074F00720B7E /* FoodCell.swift */; };
 		2522A74024A2375F00720B7E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2522A73A249DE78C00720B7E /* libsqlite3.tbd */; };
 		252A4A1524A8CB220078252A /* DailySummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A4A1424A8CB220078252A /* DailySummaryViewController.swift */; };
+		252A4A1B24AB64840078252A /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A4A1A24AB64840078252A /* DateCell.swift */; };
+		252A4A1F24AB660F0078252A /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A4A1E24AB660F0078252A /* DateViewController.swift */; };
 		252BB74424A3A0B70072A6D9 /* EditFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252BB74324A3A0B70072A6D9 /* EditFoodViewController.swift */; };
 		253F127024A4D5A400E77836 /* DailyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253F126F24A4D5A400E77836 /* DailyTabBarController.swift */; };
 		253F127224A4E86C00E77836 /* MealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253F127124A4E86C00E77836 /* MealsTableViewController.swift */; };
@@ -32,10 +57,37 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2518BD7F24AB767A00D0DE8A /* JTACMonthLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTACMonthLayout.swift; sourceTree = "<group>"; };
+		2518BD8024AB767A00D0DE8A /* JTACInteractionMonthFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTACInteractionMonthFunctions.swift; sourceTree = "<group>"; };
+		2518BD8124AB767A00D0DE8A /* JTAppleCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTAppleCalendar.h; sourceTree = "<group>"; };
+		2518BD8224AB767B00D0DE8A /* JTACScrollViewDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTACScrollViewDelegates.swift; sourceTree = "<group>"; };
+		2518BD8424AB767B00D0DE8A /* JTACVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTACVariables.swift; sourceTree = "<group>"; };
+		2518BD8524AB767B00D0DE8A /* CalendarEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEnums.swift; sourceTree = "<group>"; };
+		2518BD8624AB767B00D0DE8A /* JTACMonthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTACMonthView.swift; sourceTree = "<group>"; };
+		2518BD8724AB767B00D0DE8A /* JTACMonthCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTACMonthCell.swift; sourceTree = "<group>"; };
+		2518BD8824AB767B00D0DE8A /* JTACMonthReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTACMonthReusableView.swift; sourceTree = "<group>"; };
+		2518BD8924AB767B00D0DE8A /* JTACDayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTACDayCell.swift; sourceTree = "<group>"; };
+		2518BD8A24AB767B00D0DE8A /* JTACMonthLayoutVerticalCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTACMonthLayoutVerticalCalendar.swift; sourceTree = "<group>"; };
+		2518BD8B24AB767B00D0DE8A /* GlobalFunctionsAndExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFunctionsAndExtensions.swift; sourceTree = "<group>"; };
+		2518BD8C24AB767B00D0DE8A /* CalendarStructs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarStructs.swift; sourceTree = "<group>"; };
+		2518BD8D24AB767B00D0DE8A /* JTACInteractionYearFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTACInteractionYearFunctions.swift; sourceTree = "<group>"; };
+		2518BD8E24AB767B00D0DE8A /* JTACCollectionMonthViewDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTACCollectionMonthViewDelegates.swift; sourceTree = "<group>"; };
+		2518BD8F24AB767B00D0DE8A /* JTACMonthViewProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTACMonthViewProtocols.swift; sourceTree = "<group>"; };
+		2518BD9024AB767C00D0DE8A /* JTACMonthActionFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTACMonthActionFunctions.swift; sourceTree = "<group>"; };
+		2518BD9124AB767C00D0DE8A /* JTACMonthQueryFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTACMonthQueryFunctions.swift; sourceTree = "<group>"; };
+		2518BD9224AB767C00D0DE8A /* JTACMonthLayoutHorizontalCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTACMonthLayoutHorizontalCalendar.swift; sourceTree = "<group>"; };
+		2518BD9324AB767C00D0DE8A /* JTACCollectionYearViewDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTACCollectionYearViewDelegates.swift; sourceTree = "<group>"; };
+		2518BD9424AB767C00D0DE8A /* JTACMonthDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTACMonthDelegateProtocol.swift; sourceTree = "<group>"; };
+		2518BD9524AB767C00D0DE8A /* JTACYearViewProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTACYearViewProtocols.swift; sourceTree = "<group>"; };
+		2518BD9624AB767C00D0DE8A /* JTACYearView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTACYearView.swift; sourceTree = "<group>"; };
+		2518BD9724AB767C00D0DE8A /* JTACMonthLayoutProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTACMonthLayoutProtocol.swift; sourceTree = "<group>"; };
 		2522A737249D074F00720B7E /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
 		2522A73A249DE78C00720B7E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		2522A73B24A224F300720B7E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		252A4A1424A8CB220078252A /* DailySummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummaryViewController.swift; sourceTree = "<group>"; };
+		252A4A1624AB61060078252A /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = Frameworks/JTAppleCalendar.framework; sourceTree = "<group>"; };
+		252A4A1A24AB64840078252A /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		252A4A1E24AB660F0078252A /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		252BB74324A3A0B70072A6D9 /* EditFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFoodViewController.swift; sourceTree = "<group>"; };
 		253F126F24A4D5A400E77836 /* DailyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTabBarController.swift; sourceTree = "<group>"; };
 		253F127124A4E86C00E77836 /* MealsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsTableViewController.swift; sourceTree = "<group>"; };
@@ -71,9 +123,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2518BD7E24AB760D00D0DE8A /* JTAppleCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				2518BD8524AB767B00D0DE8A /* CalendarEnums.swift */,
+				2518BD8C24AB767B00D0DE8A /* CalendarStructs.swift */,
+				2518BD8B24AB767B00D0DE8A /* GlobalFunctionsAndExtensions.swift */,
+				2518BD8E24AB767B00D0DE8A /* JTACCollectionMonthViewDelegates.swift */,
+				2518BD9324AB767C00D0DE8A /* JTACCollectionYearViewDelegates.swift */,
+				2518BD8924AB767B00D0DE8A /* JTACDayCell.swift */,
+				2518BD8024AB767A00D0DE8A /* JTACInteractionMonthFunctions.swift */,
+				2518BD8D24AB767B00D0DE8A /* JTACInteractionYearFunctions.swift */,
+				2518BD9024AB767C00D0DE8A /* JTACMonthActionFunctions.swift */,
+				2518BD8724AB767B00D0DE8A /* JTACMonthCell.swift */,
+				2518BD9424AB767C00D0DE8A /* JTACMonthDelegateProtocol.swift */,
+				2518BD7F24AB767A00D0DE8A /* JTACMonthLayout.swift */,
+				2518BD9224AB767C00D0DE8A /* JTACMonthLayoutHorizontalCalendar.swift */,
+				2518BD9724AB767C00D0DE8A /* JTACMonthLayoutProtocol.swift */,
+				2518BD8A24AB767B00D0DE8A /* JTACMonthLayoutVerticalCalendar.swift */,
+				2518BD9124AB767C00D0DE8A /* JTACMonthQueryFunctions.swift */,
+				2518BD8824AB767B00D0DE8A /* JTACMonthReusableView.swift */,
+				2518BD8624AB767B00D0DE8A /* JTACMonthView.swift */,
+				2518BD8F24AB767B00D0DE8A /* JTACMonthViewProtocols.swift */,
+				2518BD8224AB767B00D0DE8A /* JTACScrollViewDelegates.swift */,
+				2518BD8424AB767B00D0DE8A /* JTACVariables.swift */,
+				2518BD9624AB767C00D0DE8A /* JTACYearView.swift */,
+				2518BD9524AB767C00D0DE8A /* JTACYearViewProtocols.swift */,
+				2518BD8124AB767A00D0DE8A /* JTAppleCalendar.h */,
+			);
+			path = JTAppleCalendar;
+			sourceTree = "<group>";
+		};
 		2522A739249DE78B00720B7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				252A4A1624AB61060078252A /* JTAppleCalendar.framework */,
 				2522A73B24A224F300720B7E /* CoreData.framework */,
 				2522A73A249DE78C00720B7E /* libsqlite3.tbd */,
 			);
@@ -83,6 +167,7 @@
 		25B8B72A2493A9D400870F32 = {
 			isa = PBXGroup;
 			children = (
+				2518BD7E24AB760D00D0DE8A /* JTAppleCalendar */,
 				25B8B7352493A9D400870F32 /* Food Calculator */,
 				25B8B7342493A9D400870F32 /* Products */,
 				2522A739249DE78B00720B7E /* Frameworks */,
@@ -122,6 +207,8 @@
 				253F127724A6370D00E77836 /* MealCell.swift */,
 				253F127924A639C700E77836 /* ChooseFoodViewController.swift */,
 				252A4A1424A8CB220078252A /* DailySummaryViewController.swift */,
+				252A4A1A24AB64840078252A /* DateCell.swift */,
+				252A4A1E24AB660F0078252A /* DateViewController.swift */,
 			);
 			path = "Food Calculator";
 			sourceTree = "<group>";
@@ -197,24 +284,49 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2518BDA124AB767C00D0DE8A /* JTACDayCell.swift in Sources */,
+				252A4A1F24AB660F0078252A /* DateViewController.swift in Sources */,
+				2518BDA424AB767C00D0DE8A /* CalendarStructs.swift in Sources */,
+				2518BDA224AB767C00D0DE8A /* JTACMonthLayoutVerticalCalendar.swift in Sources */,
+				2518BDA524AB767C00D0DE8A /* JTACInteractionYearFunctions.swift in Sources */,
+				2518BDAB24AB767C00D0DE8A /* JTACCollectionYearViewDelegates.swift in Sources */,
+				2518BD9F24AB767C00D0DE8A /* JTACMonthCell.swift in Sources */,
+				2518BDA624AB767C00D0DE8A /* JTACCollectionMonthViewDelegates.swift in Sources */,
 				25B8B73D2493A9D400870F32 /* SecondViewController.swift in Sources */,
+				252A4A1B24AB64840078252A /* DateCell.swift in Sources */,
+				2518BD9824AB767C00D0DE8A /* JTACMonthLayout.swift in Sources */,
 				25B8B7522493B93000870F32 /* FoodInformation.swift in Sources */,
+				2518BD9A24AB767C00D0DE8A /* JTACScrollViewDelegates.swift in Sources */,
 				25B8B7432493A9D400870F32 /* Food_Calculator.xcdatamodeld in Sources */,
 				253F127624A6342500E77836 /* FoodDatabaseViewControllerBase.swift in Sources */,
 				253F127424A4FA5600E77836 /* MealViewController.swift in Sources */,
+				2518BD9D24AB767C00D0DE8A /* CalendarEnums.swift in Sources */,
+				2518BDAA24AB767C00D0DE8A /* JTACMonthLayoutHorizontalCalendar.swift in Sources */,
 				25B8B73B2493A9D400870F32 /* FirstViewController.swift in Sources */,
+				2518BDAD24AB767C00D0DE8A /* JTACYearViewProtocols.swift in Sources */,
 				253F127A24A639C700E77836 /* ChooseFoodViewController.swift in Sources */,
 				253F127224A4E86C00E77836 /* MealsTableViewController.swift in Sources */,
+				2518BDA324AB767C00D0DE8A /* GlobalFunctionsAndExtensions.swift in Sources */,
+				2518BD9924AB767C00D0DE8A /* JTACInteractionMonthFunctions.swift in Sources */,
 				252A4A1524A8CB220078252A /* DailySummaryViewController.swift in Sources */,
 				25B8B7562495C97300870F32 /* AddFoodViewController.swift in Sources */,
 				253F127824A6370D00E77836 /* MealCell.swift in Sources */,
 				252BB74424A3A0B70072A6D9 /* EditFoodViewController.swift in Sources */,
+				2518BDA924AB767C00D0DE8A /* JTACMonthQueryFunctions.swift in Sources */,
+				2518BD9C24AB767C00D0DE8A /* JTACVariables.swift in Sources */,
 				25B8B7372493A9D400870F32 /* AppDelegate.swift in Sources */,
 				25B8B7502493B76400870F32 /* FoodDatabase.swift in Sources */,
+				2518BD9E24AB767C00D0DE8A /* JTACMonthView.swift in Sources */,
 				2522A738249D074F00720B7E /* FoodCell.swift in Sources */,
+				2518BDAF24AB767C00D0DE8A /* JTACMonthLayoutProtocol.swift in Sources */,
+				2518BDA724AB767C00D0DE8A /* JTACMonthViewProtocols.swift in Sources */,
+				2518BDA024AB767C00D0DE8A /* JTACMonthReusableView.swift in Sources */,
+				2518BDA824AB767C00D0DE8A /* JTACMonthActionFunctions.swift in Sources */,
+				2518BDAE24AB767C00D0DE8A /* JTACYearView.swift in Sources */,
 				253F127024A4D5A400E77836 /* DailyTabBarController.swift in Sources */,
 				25B8B7542493C01D00870F32 /* FoodDatabaseViewController.swift in Sources */,
 				25B8B7392493A9D400870F32 /* SceneDelegate.swift in Sources */,
+				2518BDAC24AB767C00D0DE8A /* JTACMonthDelegateProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +472,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FMS5UQZDW5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "Food Calculator/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -378,6 +494,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FMS5UQZDW5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "Food Calculator/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

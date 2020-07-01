@@ -425,6 +425,36 @@ class FoodDatabase {
         return date
     }
     
+    func getMealCount(date: String) -> Int {
+        var statement: OpaquePointer? = nil
+        let statementStr = """
+            SELECT COUNT(*)
+            FROM Meals
+            WHERE date=?;
+            """
+        var count: Int = 0
+        if sqlite3_prepare_v2(db, statementStr, -1, &statement, nil) == SQLITE_OK {
+            if sqlite3_bind_text(statement, 1, date, -1, nil) != SQLITE_OK {
+                print("Error when binding text")
+            }
+            else {
+                if sqlite3_step(statement) == SQLITE_ROW {
+                    let count32: Int32 = sqlite3_column_int(statement, 0)
+                    count = Int(count32)
+                }
+                else {
+                    print("Failed to get row")
+                }
+            }
+        }
+        else {
+            print("Error when preparing statement")
+        }
+        sqlite3_finalize(statement)
+        
+        return count
+    }
+    
     func getMealCount(date: String, time: MealTime) -> Int {
         var statement: OpaquePointer? = nil
         let statementStr = """
