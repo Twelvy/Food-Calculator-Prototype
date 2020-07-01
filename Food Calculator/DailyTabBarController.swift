@@ -10,12 +10,14 @@ import UIKit
 
 class DailyTabBarController : UITabBarController {
     
-    var mealDate: String?
+    var mealDate: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = mealDate
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        self.navigationItem.title = formatter.string(from: mealDate!)
         
         if tabBar.items != nil {
             let count = tabBar.items!.count
@@ -61,7 +63,7 @@ class DailyTabBarController : UITabBarController {
         }
     }
     
-    func setDate(date: String?) {
+    func setDate(date: Date?) {
         mealDate = date
     }
     

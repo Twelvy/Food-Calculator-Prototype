@@ -58,7 +58,10 @@ class MealsTableViewController : UITableViewController {
                     newDate = cell?.textLabel?.text
                 }
             }
-            controller.setDate(date: newDate)
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let date = formatter.date(from: newDate!)
+            controller.setDate(date: date)
         }
     }
     

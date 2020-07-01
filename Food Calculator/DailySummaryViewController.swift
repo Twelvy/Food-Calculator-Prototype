@@ -16,14 +16,14 @@ class DailySummaryViewController : UIViewController {
     @IBOutlet weak var treatsLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     
-    private var mealDate: String?
+    private var mealDate: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateView()
     }
     
-    func setup(date: String?) {
+    func setup(date: Date?) {
         mealDate = date
     }
     

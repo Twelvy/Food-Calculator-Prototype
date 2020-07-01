@@ -12,7 +12,7 @@ class MealViewController : UITableViewController {
     
     private var database: FoodDatabase? = nil;
     private var mealTime: MealTime = .Breakfast
-    private var mealDate: String? = nil
+    private var mealDate: Date? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,7 @@ class MealViewController : UITableViewController {
         database = app.foodDatabase
     }
     
-    func setup(meal: MealTime, date: String) {
+    func setup(meal: MealTime, date: Date) {
         mealTime = meal
         mealDate = date
     }

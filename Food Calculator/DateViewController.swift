@@ -27,10 +27,7 @@ class DateViewController : UIViewController {
         if segue.identifier == "show" {
             let cellState = monthView.cellStateFromIndexPath(monthView.indexPathsForSelectedItems![0])
             let controller = segue.destination as! DailyTabBarController
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd"
-            let newDate = formatter.string(from: cellState.date)
-            controller.setDate(date: newDate)
+            controller.setDate(date: cellState.date)
         }
     }
 }
@@ -67,10 +64,7 @@ extension DateViewController: JTACMonthViewDelegate {
             cell.dateLabel.textColor = .secondaryLabel
         }
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        let newDate = formatter.string(from: cellState.date)
-        if database!.getMealCount(date: newDate) > 0 {
+        if database!.getMealCount(date: cellState.date) > 0 {
             cell.indicator.isHidden = false
         }
         else {

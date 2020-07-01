@@ -60,6 +60,12 @@ class FoodDatabase {
         }
     }
     
+    private func getDateString(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: date)
+    }
+    
     // MARK: - Food database
     
     private func createFoodTable() {
@@ -425,7 +431,7 @@ class FoodDatabase {
         return date
     }
     
-    func getMealCount(date: String) -> Int {
+    func getMealCount(date: Date) -> Int {
         var statement: OpaquePointer? = nil
         let statementStr = """
             SELECT COUNT(*)
@@ -434,7 +440,8 @@ class FoodDatabase {
             """
         var count: Int = 0
         if sqlite3_prepare_v2(db, statementStr, -1, &statement, nil) == SQLITE_OK {
-            if sqlite3_bind_text(statement, 1, date, -1, nil) != SQLITE_OK {
+            let dateString = getDateString(date: date)
+            if sqlite3_bind_text(statement, 1, dateString, -1, nil) != SQLITE_OK {
                 print("Error when binding text")
             }
             else {
@@ -455,7 +462,7 @@ class FoodDatabase {
         return count
     }
     
-    func getMealCount(date: String, time: MealTime) -> Int {
+    func getMealCount(date: Date, time: MealTime) -> Int {
         var statement: OpaquePointer? = nil
         let statementStr = """
             SELECT COUNT(*)
@@ -464,7 +471,8 @@ class FoodDatabase {
             """
         var count: Int = 0
         if sqlite3_prepare_v2(db, statementStr, -1, &statement, nil) == SQLITE_OK {
-            if sqlite3_bind_text(statement, 1, date, -1, nil) != SQLITE_OK {
+            let dateString = getDateString(date: date)
+            if sqlite3_bind_text(statement, 1, dateString, -1, nil) != SQLITE_OK {
                 print("Error when binding text")
             }
             else if sqlite3_bind_int(statement, 2, time.rawValue) != SQLITE_OK {
@@ -488,7 +496,7 @@ class FoodDatabase {
         return count
     }
     
-    func getMealInfo(date: String, time: MealTime, index: Int) -> MealInfo? {
+    func getMealInfo(date: Date, time: MealTime, index: Int) -> MealInfo? {
         var statement: OpaquePointer? = nil
         let statementStr = """
             SELECT
@@ -506,7 +514,8 @@ class FoodDatabase {
             """
         var info: MealInfo? = nil
         if sqlite3_prepare_v2(db, statementStr, -1, &statement, nil) == SQLITE_OK {
-            if sqlite3_bind_text(statement, 1, date, -1, nil) != SQLITE_OK {
+            let dateString = getDateString(date: date)
+            if sqlite3_bind_text(statement, 1, dateString, -1, nil) != SQLITE_OK {
                 print("Error when binding text")
             }
             else if sqlite3_bind_int(statement, 2, time.rawValue) != SQLITE_OK {
@@ -536,7 +545,7 @@ class FoodDatabase {
         return info
     }
     
-    func addMeal(date: String, meal: MealTime, foodKey: Int, weight:Float) {
+    func addMeal(date: Date, meal: MealTime, foodKey: Int, weight:Float) {
         var statement: OpaquePointer? = nil
         let statementStr = """
             INSERT INTO Meals (
@@ -552,7 +561,8 @@ class FoodDatabase {
             );
             """
         if sqlite3_prepare_v2(db, statementStr, -1, &statement, nil) == SQLITE_OK {
-            if sqlite3_bind_text(statement, 1, date, -1, nil) != SQLITE_OK {
+            let dateString = getDateString(date: date)
+            if sqlite3_bind_text(statement, 1, dateString, -1, nil) != SQLITE_OK {
                 print("Error when binding text")
             }
             else if sqlite3_bind_int(statement, 2, meal.rawValue) != SQLITE_OK {
@@ -635,7 +645,7 @@ class FoodDatabase {
     }
     
     // calculate
-    func calculateCalories(date: String, mealTime: MealTime) -> Float {
+    func calculateCalories(date: Date, mealTime: MealTime) -> Float {
         var statement: OpaquePointer? = nil
         let statementStr = """
             SELECT
@@ -647,7 +657,8 @@ class FoodDatabase {
             """
         var calories: Double = 0.0;
         if sqlite3_prepare_v2(db, statementStr, -1, &statement, nil) == SQLITE_OK {
-            if sqlite3_bind_text(statement, 1, date, -1, nil) != SQLITE_OK {
+            let dateString = getDateString(date: date)
+            if sqlite3_bind_text(statement, 1, dateString, -1, nil) != SQLITE_OK {
                 print("Error when binding text")
             }
             else if sqlite3_bind_int(statement, 2, mealTime.rawValue) != SQLITE_OK {
