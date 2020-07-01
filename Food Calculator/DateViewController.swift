@@ -21,14 +21,18 @@ class DateViewController : UIViewController {
         database = app.foodDatabase
     }
     
-    //private var selectedDate: Date?
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "show" {
             let cellState = monthView.cellStateFromIndexPath(monthView.indexPathsForSelectedItems![0])
             let controller = segue.destination as! DailyTabBarController
             controller.setDate(date: cellState.date)
         }
+    }
+    
+    // TODO: we would like to reload the data when we come BACK to this view.
+    // I don't know the method to use
+    override func viewWillAppear(_ animated: Bool) {
+        monthView.reloadData()
     }
 }
 
