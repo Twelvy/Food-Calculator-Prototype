@@ -60,9 +60,14 @@ class FoodDatabase {
         }
     }
     
-    private func getDateString(date: Date) -> String {
+    private func getDateFormatter() -> DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }
+    
+    private func getDateString(date: Date) -> String {
+        let formatter = getDateFormatter()
         return formatter.string(from: date)
     }
     
@@ -373,6 +378,36 @@ class FoodDatabase {
     }
     
     // MARK: - Meal database
+    
+    func getFirstDate() -> Date? {
+        var statement: OpaquePointer? = nil
+        let statementStr = """
+            SELECT
+                date
+            FROM Meals
+            ORDER BY
+                date DESC
+            LIMIT 1
+            OFFSET 0;
+            """
+        var date: Date? = nil
+        if sqlite3_prepare_v2(db, statementStr, -1, &statement, nil) == SQLITE_OK {
+            if sqlite3_step(statement) == SQLITE_ROW {
+                let dateString = String(cString: sqlite3_column_text(statement, 0))
+                let formatter = getDateFormatter()
+                date = formatter.date(from: dateString)
+            }
+            else {
+                print("Failed to get date")
+            }
+        }
+        else {
+            print("Error when preparing statement")
+        }
+        sqlite3_finalize(statement)
+        
+        return date
+    }
     
     func getDayCount() -> Int {
         var statement: OpaquePointer? = nil

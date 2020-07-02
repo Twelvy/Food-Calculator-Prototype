@@ -19,6 +19,9 @@ class DateViewController : UIViewController {
         super.viewDidLoad()
         let app = UIApplication.shared.delegate as! AppDelegate
         database = app.foodDatabase
+        
+        monthView.scrollingMode = .nonStopToSection(withResistance: 1.0)
+        monthView.scrollToDate(Date(), animateScroll: false)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -36,21 +39,46 @@ class DateViewController : UIViewController {
     }
 }
 
+private func GetPreviousMonthDate(_ date: Date) -> Date {
+    let components: DateComponents = Calendar.current.dateComponents([.year, .month], from: date)
+    var editedYear = components.year!
+    var editedMonth = components.month! - 1
+    if editedMonth <= 0 {
+        editedMonth = 12
+        editedYear -= 1
+    }
+    let dc = DateComponents(calendar: Calendar.current, year: editedYear, month: editedMonth, day: 1)
+    return dc.date!
+}
+
+private func GetNextMonthDate(_ date: Date) -> Date {
+    let components: DateComponents = Calendar.current.dateComponents([.year, .month], from: date)
+    var editedYear = components.year!
+    var editedMonth = components.month! + 1
+    if editedMonth > 12 {
+        editedMonth = 1
+        editedYear += 1
+    }
+    let dc = DateComponents(calendar: Calendar.current, year: editedYear, month: editedMonth, day: 1)
+    return dc.date!
+}
+
 extension DateViewController: JTACMonthViewDataSource {
     
     func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
-        //let formatter = DateFormatter()
-        //formatter.dateFormat = "yyyy-MM-dd"
-        //let startDate = formatter.date(from: "2020-01-01")!
-        //let endDate = Date()
-        let now = Date()
-        let components = Calendar.current.dateComponents([.year, .month], from: now)
-        let dc = DateComponents(calendar: Calendar.current, year: components.year, month: components.month! - 1, day: 1)
+        let today = Date()
         
-        let startDate = dc.date!
+        if database == nil {
+            let app = UIApplication.shared.delegate as! AppDelegate
+            database = app.foodDatabase
+        }
         
-        let dc2 = DateComponents(calendar: Calendar.current, year: components.year, month: components.month! + 1, day: 1)
-        let endDate = dc2.date!
+        let firstDate = database?.getFirstDate()
+        var startDate = GetPreviousMonthDate(today)
+        if firstDate != nil && firstDate! < today {
+            startDate = GetPreviousMonthDate(firstDate!)
+        }
+        let endDate = GetNextMonthDate(today)
         
         return ConfigurationParameters(startDate: startDate, endDate: endDate, generateInDates: .forAllMonths, generateOutDates: .tillEndOfRow, firstDayOfWeek: .monday)
     }
