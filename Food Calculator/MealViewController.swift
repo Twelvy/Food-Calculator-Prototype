@@ -51,6 +51,7 @@ class MealViewController : UITableViewController {
             let cell = tableView.cellForRow(at: indexPath) as! MealCell
             database?.deleteMeal(key: cell.mealKey)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            (self.tabBarController as? DailyTabBarController)?.onDailyFoodUpdated()
         }
     }
     
@@ -71,6 +72,7 @@ class MealViewController : UITableViewController {
                 
                 // reload cell
                 self.tableView.reloadRows(at: [indexPath], with: .automatic)
+                (self.tabBarController as? DailyTabBarController)?.onDailyFoodUpdated()
             }
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -82,6 +84,11 @@ class MealViewController : UITableViewController {
     
     func addMeal(foodId: Int) {
         database?.addMeal(date: mealDate!, meal: mealTime, foodKey: foodId, weight: 0.0)
+        tableView.reloadData()
+        (tabBarController as? DailyTabBarController)?.onDailyFoodUpdated()
+    }
+    
+    func refresh() {
         tableView.reloadData()
     }
 }

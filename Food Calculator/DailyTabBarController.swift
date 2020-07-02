@@ -76,6 +76,20 @@ class DailyTabBarController : UITabBarController {
             let foodKey = src.selectedFoodKey else {
             return
         }
-        (viewControllers![selectedIndex] as! MealViewController).addMeal(foodId: foodKey)
+        if selectedIndex < 4 {
+            (viewControllers![selectedIndex] as! MealViewController).addMeal(foodId: foodKey)
+        }
+        else {
+            (viewControllers![selectedIndex] as! DailySummaryViewController).setExtraFood(foodId: foodKey)
+        }
+    }
+    
+    func onDailyFoodUpdated() {
+        (viewControllers![4] as! DailySummaryViewController).onDailyFoodUpdated()
+    }
+    
+    func refreshMeal(_ mealTime: MealTime) {
+        let index = Int(mealTime.rawValue)
+        (viewControllers![index] as! MealViewController).refresh()
     }
 }
