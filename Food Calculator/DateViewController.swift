@@ -80,7 +80,7 @@ extension DateViewController: JTACMonthViewDataSource {
         }
         let endDate = GetNextMonthDate(today)
         
-        return ConfigurationParameters(startDate: startDate, endDate: endDate, generateInDates: .forAllMonths, generateOutDates: .tillEndOfRow, firstDayOfWeek: .monday)
+        return ConfigurationParameters(startDate: startDate, endDate: endDate, generateInDates: .forAllMonths, generateOutDates: .off, firstDayOfWeek: .monday)
     }
 }
 
@@ -90,10 +90,12 @@ extension DateViewController: JTACMonthViewDelegate {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
         cell.dateLabel.text = cellState.text
         if cellState.dateBelongsTo == .thisMonth {
+            cell.isHidden = false
             cell.dateLabel.textColor = .none
         }
         else {
             cell.dateLabel.textColor = .secondaryLabel
+            cell.isHidden = true
         }
         
         if database!.getMealCount(date: cellState.date) > 0 {
