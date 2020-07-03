@@ -67,23 +67,6 @@ class DailyTabBarController : UITabBarController {
         mealDate = date
     }
     
-    @IBAction func cancel(_ unwindSegue: UIStoryboardSegue) {
-        // nothing to do
-    }
-    
-    @IBAction func addMeal(_ unwindSegue: UIStoryboardSegue) {
-        guard let src = unwindSegue.source as? ChooseFoodViewController,
-            let foodKey = src.selectedFoodKey else {
-            return
-        }
-        if selectedIndex < 4 {
-            (viewControllers![selectedIndex] as! MealViewController).addMeal(foodId: foodKey)
-        }
-        else {
-            (viewControllers![selectedIndex] as! DailySummaryViewController).setExtraFood(foodId: foodKey)
-        }
-    }
-    
     func onDailyFoodUpdated() {
         (viewControllers![4] as! DailySummaryViewController).onDailyFoodUpdated()
     }

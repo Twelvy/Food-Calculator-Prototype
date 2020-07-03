@@ -59,25 +59,17 @@
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" userLabel="Daily" customClass="DailyTabBarController" customModule="Food_Calculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="r5g-sz-neE">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="q7a-eg-EAk">
-                            <connections>
-                                <segue destination="eX9-7o-nYW" kind="popoverPresentation" popoverAnchorBarButtonItem="q7a-eg-EAk" id="l8n-2p-PxP">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="r5g-sz-neE"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="yHf-oU-VwT" kind="relationship" relationship="viewControllers" id="WVy-Kh-Nfe"/>
-                        <segue destination="yHf-oU-VwT" kind="relationship" relationship="viewControllers" id="WaL-c0-x2t"/>
-                        <segue destination="yHf-oU-VwT" kind="relationship" relationship="viewControllers" id="b90-uC-472"/>
-                        <segue destination="yHf-oU-VwT" kind="relationship" relationship="viewControllers" id="YqN-iV-3UB"/>
+                        <segue destination="AdG-4H-9CS" kind="relationship" relationship="viewControllers" id="IEG-yT-Cdm"/>
+                        <segue destination="AdG-4H-9CS" kind="relationship" relationship="viewControllers" id="uCP-2Q-4Qx"/>
+                        <segue destination="AdG-4H-9CS" kind="relationship" relationship="viewControllers" id="cNh-RS-rwK"/>
+                        <segue destination="AdG-4H-9CS" kind="relationship" relationship="viewControllers" id="IS6-Gk-dqh"/>
                         <segue destination="OOT-aE-Nub" kind="relationship" relationship="viewControllers" id="PMJ-Ua-FPc"/>
                     </connections>
                 </tabBarController>
@@ -157,49 +149,89 @@
             <point key="canvasLocation" x="4401" y="-445"/>
         </scene>
         <!--Meal-->
-        <scene sceneID="NHH-hR-rlw">
+        <scene sceneID="yRi-Ef-3Od">
             <objects>
-                <tableViewController id="yHf-oU-VwT" userLabel="Meal" customClass="MealViewController" customModule="Food_Calculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="agd-U0-N2E">
+                <viewController id="AdG-4H-9CS" userLabel="Meal" customClass="MealViewController" customModule="Food_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="maZ-aJ-TO9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zoH-CY-76q">
+                                <rect key="frame" x="20" y="108" width="374" height="22"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQo-gY-hIc">
+                                        <rect key="frame" x="0.0" y="1" width="187" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LYB-vL-dVA">
+                                        <rect key="frame" x="187" y="0.0" width="187" height="22"/>
+                                        <state key="normal" image="plus.circle.fill" catalog="system"/>
+                                        <connections>
+                                            <segue destination="eX9-7o-nYW" kind="popoverPresentation" popoverAnchorView="LYB-vL-dVA" id="Sq5-5D-r7q">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aTJ-lc-3U8">
+                                <rect key="frame" x="0.0" y="150" width="414" height="663"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="vHy-fo-Jar" detailTextLabel="KlF-JN-ld8" style="IBUITableViewCellStyleValue1" id="Dhu-mm-Wfg" customClass="MealCell" customModule="Food_Calculator" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dhu-mm-Wfg" id="NhZ-TA-FDB">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vHy-fo-Jar">
+                                                    <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KlF-JN-ld8">
+                                                    <rect key="frame" x="350" y="12" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="AdG-4H-9CS" id="8Ik-FH-pUo"/>
+                                    <outlet property="delegate" destination="AdG-4H-9CS" id="YuK-Kb-9zI"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Im7-Vr-jBz" detailTextLabel="SX2-yE-JLU" style="IBUITableViewCellStyleValue1" id="pTt-iv-utI" customClass="MealCell" customModule="Food_Calculator" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pTt-iv-utI" id="dJf-NW-dV1">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Im7-Vr-jBz">
-                                            <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SX2-yE-JLU">
-                                            <rect key="frame" x="350" y="12" width="44" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="yHf-oU-VwT" id="51u-v8-VOR"/>
-                            <outlet property="delegate" destination="yHf-oU-VwT" id="y3f-qr-If7"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="yNr-iH-Mrc"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dUp-LH-Jy5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="aTJ-lc-3U8" firstAttribute="top" secondItem="zoH-CY-76q" secondAttribute="bottom" constant="20" id="3M2-oo-Jm1"/>
+                            <constraint firstItem="zoH-CY-76q" firstAttribute="trailing" secondItem="FbG-ZA-93L" secondAttribute="trailing" constant="-20" id="86J-sP-RY7"/>
+                            <constraint firstItem="aTJ-lc-3U8" firstAttribute="bottom" secondItem="FbG-ZA-93L" secondAttribute="bottom" id="BRE-ln-4ym"/>
+                            <constraint firstItem="zoH-CY-76q" firstAttribute="top" secondItem="FbG-ZA-93L" secondAttribute="top" constant="20" id="Ycl-X2-DqU"/>
+                            <constraint firstItem="zoH-CY-76q" firstAttribute="leading" secondItem="FbG-ZA-93L" secondAttribute="leading" constant="20" id="aPw-nU-4mX"/>
+                            <constraint firstItem="aTJ-lc-3U8" firstAttribute="trailing" secondItem="FbG-ZA-93L" secondAttribute="trailing" id="ifq-SJ-ZdK"/>
+                            <constraint firstItem="aTJ-lc-3U8" firstAttribute="leading" secondItem="FbG-ZA-93L" secondAttribute="leading" id="juB-sL-I2Z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FbG-ZA-93L"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="zyT-XR-wqd"/>
+                    <connections>
+                        <outlet property="mealCaloriesLabel" destination="vQo-gY-hIc" id="MKb-cx-f4B"/>
+                        <outlet property="mealTableView" destination="aTJ-lc-3U8" id="g6w-nl-pU2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ba9-p1-IEG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3480" y="-1086"/>
+            <point key="canvasLocation" x="3480" y="-445"/>
         </scene>
         <!--Food Database-->
         <scene sceneID="r2w-9h-Lfr">
@@ -751,6 +783,7 @@
         <image name="folder.fill" catalog="system" width="64" height="46"/>
         <image name="moon.fill" catalog="system" width="64" height="60"/>
         <image name="plus" catalog="system" width="64" height="56"/>
+        <image name="plus.circle.fill" catalog="system" width="64" height="60"/>
         <image name="questionmark" catalog="system" width="48" height="64"/>
         <image name="star.circle.fill" catalog="system" width="64" height="60"/>
         <image name="sum" catalog="system" width="42" height="64"/>
@@ -759,8 +792,8 @@
         <image name="table.fill" catalog="system" width="64" height="46"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WVy-Kh-Nfe"/>
-        <segue reference="Eog-1n-jyI"/>
+        <segue reference="uCP-2Q-4Qx"/>
+        <segue reference="Sq5-5D-r7q"/>
         <segue reference="3iH-dO-tlV"/>
     </inferredMetricsTieBreakers>
 </document>

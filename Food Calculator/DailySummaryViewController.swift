@@ -25,13 +25,14 @@ class DailySummaryViewController : UIViewController, UITextFieldDelegate {
     private var selectedFood: FoodInformation?
     private var extraWeight: Float = 0.0
     
-    private var database: FoodDatabase?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let app = UIApplication.shared.delegate as! AppDelegate
-        database = app.foodDatabase
         updateView()
+    }
+    
+    private func getDatabase() -> FoodDatabase {
+        let app = UIApplication.shared.delegate as! AppDelegate
+        return app.foodDatabase
     }
     
     func setup(date: Date?) {
@@ -43,44 +44,46 @@ class DailySummaryViewController : UIViewController, UITextFieldDelegate {
             return
         }
         
-        let breakfastCalories = database!.calculateCalories(date: mealDate!, mealTime: .Breakfast)
-        let lunchCalories = database!.calculateCalories(date: mealDate!, mealTime: .Lunch)
-        let dinnerCalories = database!.calculateCalories(date: mealDate!, mealTime: .Dinner)
-        let treatsCalories = database!.calculateCalories(date: mealDate!, mealTime: .Treats)
+        let database = getDatabase()
         
-        breakfastLabel.text = String(breakfastCalories) + " kcal"
-        lunchLabel.text = String(lunchCalories) + " kcal"
-        dinnerLabel.text = String(dinnerCalories) + " kcal"
-        treatsLabel.text = String(treatsCalories) + " kcal"
+        let breakfastCalories = database.calculateCalories(date: mealDate!, mealTime: .Breakfast)
+        let lunchCalories = database.calculateCalories(date: mealDate!, mealTime: .Lunch)
+        let dinnerCalories = database.calculateCalories(date: mealDate!, mealTime: .Dinner)
+        let treatsCalories = database.calculateCalories(date: mealDate!, mealTime: .Treats)
+        
+        breakfastLabel?.text = String(breakfastCalories) + " kcal"
+        lunchLabel?.text = String(lunchCalories) + " kcal"
+        dinnerLabel?.text = String(dinnerCalories) + " kcal"
+        treatsLabel?.text = String(treatsCalories) + " kcal"
         
         let totalCalories = breakfastCalories + lunchCalories + dinnerCalories + treatsCalories
-        totalLabel.text = String(totalCalories) + " kcal"
+        totalLabel?.text = String(totalCalories) + " kcal"
         
         if selectedFood == nil {
-            extraFoodLabel.text = nil
-            extraWeightLabel.text = "--"
-            forwardExtraFoodButton.isEnabled = false
+            extraFoodLabel?.text = nil
+            extraWeightLabel?.text = "--"
+            forwardExtraFoodButton?.isEnabled = false
         }
         else {
-            extraFoodLabel.text = selectedFood!.name
+            extraFoodLabel?.text = selectedFood!.name
             
             let targetCalories = parseCalories()
             if targetCalories == nil {
-                extraWeightLabel.text = "--"
-                forwardExtraFoodButton.isEnabled = false
+                extraWeightLabel?.text = "--"
+                forwardExtraFoodButton?.isEnabled = false
             }
             else if targetCalories! < totalCalories {
-                extraWeightLabel.text = "enough for today!"
-                forwardExtraFoodButton.isEnabled = false
+                extraWeightLabel?.text = "enough for today!"
+                forwardExtraFoodButton?.isEnabled = false
             }
             else if selectedFood!.kCal <= 0.0 {
-                extraWeightLabel.text = "non nutritive food!"
-                forwardExtraFoodButton.isEnabled = false
+                extraWeightLabel?.text = "non nutritive food!"
+                forwardExtraFoodButton?.isEnabled = false
             }
             else {
                 extraWeight = (targetCalories! - totalCalories) / selectedFood!.kCal
-                extraWeightLabel.text = String(extraWeight) + " g"
-                forwardExtraFoodButton.isEnabled = true
+                extraWeightLabel?.text = String(extraWeight) + " g"
+                forwardExtraFoodButton?.isEnabled = true
             }
         }
     }
@@ -92,14 +95,15 @@ class DailySummaryViewController : UIViewController, UITextFieldDelegate {
     }
     
     private func parseCalories() -> Float? {
-        if targetCaloriesField.hasText && targetCaloriesField.text != nil && !targetCaloriesField.text!.isEmpty {
+        if targetCaloriesField != nil && targetCaloriesField.hasText && targetCaloriesField.text != nil && !targetCaloriesField.text!.isEmpty {
             return Float(targetCaloriesField.text!)
         }
         return nil
     }
     
     func setExtraFood(foodId: Int) {
-        selectedFood = database?.getFoodInformation(key: foodId)
+        let database = getDatabase()
+        selectedFood = database.getFoodInformation(key: foodId)
         updateView()
     }
     
@@ -121,7 +125,8 @@ class DailySummaryViewController : UIViewController, UITextFieldDelegate {
     }
     
     private func saveFood(_ mealTime: MealTime) {
-        database!.addMeal(date: mealDate!, meal: mealTime, foodKey: selectedFood!.primaryKey, weight: extraWeight)
+        let database = getDatabase()
+        database.addMeal(date: mealDate!, meal: mealTime, foodKey: selectedFood!.primaryKey, weight: extraWeight)
         selectedFood = nil
         updateView()
         (tabBarController as? DailyTabBarController)?.refreshMeal(mealTime)

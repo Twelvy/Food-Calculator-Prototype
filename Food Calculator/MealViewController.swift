@@ -8,16 +8,22 @@
 
 import UIKit
 
-class MealViewController : UITableViewController {
+class MealViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private var database: FoodDatabase? = nil;
+    @IBOutlet weak var mealCaloriesLabel: UILabel!
+    @IBOutlet weak var mealTableView: UITableView!
+    
     private var mealTime: MealTime = .Breakfast
     private var mealDate: Date? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateTotalCalories()
+    }
+    
+    private func getDatabase() -> FoodDatabase {
         let app = UIApplication.shared.delegate as! AppDelegate
-        database = app.foodDatabase
+        return app.foodDatabase
     }
     
     func setup(meal: MealTime, date: Date) {
@@ -25,38 +31,42 @@ class MealViewController : UITableViewController {
         mealDate = date
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return database!.getMealCount(date: mealDate!, time: mealTime)
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let database = getDatabase()
+        return database.getMealCount(date: mealDate!, time: mealTime)
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let mealCell = cell as! MealCell
-        let info = database!.getMealInfo(date: mealDate!, time: mealTime, index: indexPath.row)
+        let database = getDatabase()
+        let info = database.getMealInfo(date: mealDate!, time: mealTime, index: indexPath.row)
         mealCell.setInfo(info: info)
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let cell = tableView.cellForRow(at: indexPath) as! MealCell
-            database?.deleteMeal(key: cell.mealKey)
+            let database = getDatabase()
+            database.deleteMeal(key: cell.mealKey)
             tableView.deleteRows(at: [indexPath], with: .fade)
             (self.tabBarController as? DailyTabBarController)?.onDailyFoodUpdated()
+            updateTotalCalories()
         }
     }
     
-    override func tableView(_ tableview: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let mealCell = tableView.cellForRow(at: indexPath) as! MealCell
+    func tableView(_ tableview: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let mealCell = tableview.cellForRow(at: indexPath) as! MealCell
         let alert = UIAlertController(title: "Edit weight", message: "Change the weight of the food", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Edit", style: .destructive, handler: { _ in
             guard let txt = alert.textFields?[0].text else {
@@ -68,11 +78,13 @@ class MealViewController : UITableViewController {
             }
             if mealCell.mealWeight != newWeight {
                 // update weight
-                self.database?.editMeal(key: mealCell.mealKey, weight: newWeight)
+                let database = self.getDatabase()
+                database.editMeal(key: mealCell.mealKey, weight: newWeight)
                 
                 // reload cell
-                self.tableView.reloadRows(at: [indexPath], with: .automatic)
+                self.mealTableView.reloadRows(at: [indexPath], with: .automatic)
                 (self.tabBarController as? DailyTabBarController)?.onDailyFoodUpdated()
+                self.updateTotalCalories()
             }
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -83,12 +95,33 @@ class MealViewController : UITableViewController {
     }
     
     func addMeal(foodId: Int) {
-        database?.addMeal(date: mealDate!, meal: mealTime, foodKey: foodId, weight: 0.0)
-        tableView.reloadData()
+        let database = getDatabase()
+        database.addMeal(date: mealDate!, meal: mealTime, foodKey: foodId, weight: 0.0)
+        mealTableView.reloadData()
         (tabBarController as? DailyTabBarController)?.onDailyFoodUpdated()
+        updateTotalCalories()
     }
     
     func refresh() {
-        tableView.reloadData()
+        mealTableView.reloadData()
+        updateTotalCalories()
+    }
+    
+    private func updateTotalCalories() {
+        let database = getDatabase()
+        let kcal = database.calculateCalories(date: mealDate!, mealTime: mealTime)
+        mealCaloriesLabel?.text = String(kcal) + " kcal"
+    }
+    
+    @IBAction func cancel(_ unwindSegue: UIStoryboardSegue) {
+        // nothing to do
+    }
+    
+    @IBAction func addMeal(_ unwindSegue: UIStoryboardSegue) {
+        guard let src = unwindSegue.source as? ChooseFoodViewController,
+            let foodKey = src.selectedFoodKey else {
+            return
+        }
+        addMeal(foodId: foodKey)
     }
 }
