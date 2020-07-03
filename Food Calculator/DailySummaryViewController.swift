@@ -15,14 +15,15 @@ class DailySummaryViewController : UIViewController, UITextFieldDelegate {
     @IBOutlet weak var dinnerLabel: UILabel!
     @IBOutlet weak var treatsLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var targetCaloriesField: UITextField!
     @IBOutlet weak var extraFoodLabel: UILabel!
-    @IBOutlet weak var extraFoodWeightField: UITextField!
-    @IBOutlet weak var newTotalLabel: UILabel!
+    @IBOutlet weak var extraWeightLabel: UILabel!
     @IBOutlet weak var forwardExtraFoodButton: UIButton!
     
     private var mealDate: Date?
     
     private var selectedFood: FoodInformation?
+    private var extraWeight: Float = 0.0
     
     private var database: FoodDatabase?
     
@@ -57,19 +58,30 @@ class DailySummaryViewController : UIViewController, UITextFieldDelegate {
         
         if selectedFood == nil {
             extraFoodLabel.text = nil
-            extraFoodWeightField.text = nil
-            newTotalLabel.text = totalLabel.text
+            extraWeightLabel.text = "--"
             forwardExtraFoodButton.isEnabled = false
         }
         else {
             extraFoodLabel.text = selectedFood!.name
-            newTotalLabel.text = totalLabel.text
             
-            let w = parseWeight()
-            let extraCalories = selectedFood!.kCal * w
-            let newTotalCalories = totalCalories + extraCalories
-            newTotalLabel.text = String(newTotalCalories) + " kcal"
-            forwardExtraFoodButton.isEnabled = true
+            let targetCalories = parseCalories()
+            if targetCalories == nil {
+                extraWeightLabel.text = "--"
+                forwardExtraFoodButton.isEnabled = false
+            }
+            else if targetCalories! < totalCalories {
+                extraWeightLabel.text = "enough for today!"
+                forwardExtraFoodButton.isEnabled = false
+            }
+            else if selectedFood!.kCal <= 0.0 {
+                extraWeightLabel.text = "non nutritive food!"
+                forwardExtraFoodButton.isEnabled = false
+            }
+            else {
+                extraWeight = (targetCalories! - totalCalories) / selectedFood!.kCal
+                extraWeightLabel.text = String(extraWeight) + " g"
+                forwardExtraFoodButton.isEnabled = true
+            }
         }
     }
     
@@ -79,14 +91,11 @@ class DailySummaryViewController : UIViewController, UITextFieldDelegate {
         return true
     }
     
-    private func parseWeight() -> Float {
-        if extraFoodWeightField.hasText && extraFoodWeightField.text != nil && !extraFoodWeightField.text!.isEmpty {
-            let weight = Float(extraFoodWeightField.text!)
-            if weight != nil {
-                return weight!
-            }
+    private func parseCalories() -> Float? {
+        if targetCaloriesField.hasText && targetCaloriesField.text != nil && !targetCaloriesField.text!.isEmpty {
+            return Float(targetCaloriesField.text!)
         }
-        return 0
+        return nil
     }
     
     func setExtraFood(foodId: Int) {
@@ -112,7 +121,7 @@ class DailySummaryViewController : UIViewController, UITextFieldDelegate {
     }
     
     private func saveFood(_ mealTime: MealTime) {
-        database!.addMeal(date: mealDate!, meal: mealTime, foodKey: selectedFood!.primaryKey, weight: parseWeight())
+        database!.addMeal(date: mealDate!, meal: mealTime, foodKey: selectedFood!.primaryKey, weight: extraWeight)
         selectedFood = nil
         updateView()
         (tabBarController as? DailyTabBarController)?.refreshMeal(mealTime)
