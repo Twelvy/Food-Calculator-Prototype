@@ -101,9 +101,14 @@ class DailySummaryViewController : UIViewController, UITextFieldDelegate {
         return nil
     }
     
-    func setExtraFood(foodId: Int) {
+    @IBAction func addMeal(_ unwindSegue: UIStoryboardSegue) {
+        guard let src = unwindSegue.source as? ChooseFoodViewController,
+            let foodKey = src.selectedFoodKey else {
+            return
+        }
+        
         let database = getDatabase()
-        selectedFood = database.getFoodInformation(key: foodId)
+        selectedFood = database.getFoodInformation(key: foodKey)
         updateView()
     }
     

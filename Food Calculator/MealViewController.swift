@@ -82,7 +82,7 @@ class MealViewController : UIViewController, UITableViewDelegate, UITableViewDat
                 database.editMeal(key: mealCell.mealKey, weight: newWeight)
                 
                 // reload cell
-                self.mealTableView.reloadRows(at: [indexPath], with: .automatic)
+                self.mealTableView?.reloadRows(at: [indexPath], with: .automatic)
                 (self.tabBarController as? DailyTabBarController)?.onDailyFoodUpdated()
                 self.updateTotalCalories()
             }
@@ -97,13 +97,13 @@ class MealViewController : UIViewController, UITableViewDelegate, UITableViewDat
     func addMeal(foodId: Int) {
         let database = getDatabase()
         database.addMeal(date: mealDate!, meal: mealTime, foodKey: foodId, weight: 0.0)
-        mealTableView.reloadData()
+        mealTableView?.reloadData()
         (tabBarController as? DailyTabBarController)?.onDailyFoodUpdated()
         updateTotalCalories()
     }
     
     func refresh() {
-        mealTableView.reloadData()
+        mealTableView?.reloadData()
         updateTotalCalories()
     }
     
