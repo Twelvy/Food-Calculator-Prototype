@@ -126,6 +126,7 @@ class DailySummaryViewController : UIViewController, UITextFieldDelegate {
         alert.addAction(UIAlertAction(title: "Treats", style: .default, handler: { _ in
             self.saveFood(.Treats)
         }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
