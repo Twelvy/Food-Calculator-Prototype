@@ -16,7 +16,8 @@ class DailyTabBarController : UITabBarController {
         super.viewDidLoad()
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.locale = .current
+        formatter.dateFormat = "MMMM d yyyy"
         self.navigationItem.title = formatter.string(from: mealDate!)
         
         if tabBar.items != nil {
