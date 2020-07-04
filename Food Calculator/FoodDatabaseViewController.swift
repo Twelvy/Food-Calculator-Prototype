@@ -53,6 +53,7 @@ class FoodDatabaseViewController : FoodDatabaseViewControllerBase {
         alert.addTextField(configurationHandler: { (textField) in
             textField.placeholder = "kcal for 100 g"
             textField.text = String(foodInfo.kCal)
+            textField.keyboardType = .decimalPad
         })
         self.present(alert, animated: true, completion: nil)
     }
@@ -110,6 +111,7 @@ class FoodDatabaseViewController : FoodDatabaseViewControllerBase {
         alert.addTextField(configurationHandler: { (textField) in
             textField.placeholder = "kcal for 100 g"
             textField.text = kcal
+            textField.keyboardType = .decimalPad
         })
         self.present(alert, animated: true, completion: nil)
     }

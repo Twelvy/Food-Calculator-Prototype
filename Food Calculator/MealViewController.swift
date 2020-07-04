@@ -90,6 +90,7 @@ class MealViewController : UIViewController, UITableViewDelegate, UITableViewDat
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addTextField(configurationHandler: { (textField) in
             textField.text = String(mealCell.mealWeight)
+            textField.keyboardType = .decimalPad
         })
         self.present(alert, animated: true, completion: nil)
     }
