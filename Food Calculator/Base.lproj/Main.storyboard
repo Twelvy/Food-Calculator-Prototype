@@ -275,7 +275,9 @@
                     <navigationItem key="navigationItem" title="Food database" id="BoF-rf-Deg">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Oqp-2P-laW">
                             <connections>
-                                <action selector="addFoodAction:" destination="726-l2-EkG" id="TkH-vN-wKa"/>
+                                <segue destination="SNC-F4-c0j" kind="popoverPresentation" identifier="editFood" popoverAnchorBarButtonItem="Oqp-2P-laW" id="5BA-rD-Avt">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -284,57 +286,88 @@
             </objects>
             <point key="canvasLocation" x="1645" y="359"/>
         </scene>
-        <!--Add food-->
-        <scene sceneID="cPB-j1-TTl">
+        <!--Edit Food-->
+        <scene sceneID="jln-31-0bd">
             <objects>
-                <viewController id="v41-Oq-7N0" userLabel="Add food" customClass="AddFoodViewController" customModule="Food_Calculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="YYL-tm-huh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <viewController id="SNC-F4-c0j" userLabel="Edit Food" customClass="EditFoodViewController" customModule="Food_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NoR-jx-ouJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WiR-BD-hCf">
-                                <rect key="frame" x="20" y="88" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="kCal for 100 g" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bsd-18-Ck7">
-                                <rect key="frame" x="20" y="130" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="bKe-tp-Hqj">
+                                <rect key="frame" x="20" y="20" width="374" height="768"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6JP-v6-y9x">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="154.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7L-RD-zLc">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. Sweet potato" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oBH-o1-a9i">
+                                                <rect key="frame" x="0.0" y="20.5" width="374" height="134"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ehJ-7z-2gN">
+                                        <rect key="frame" x="0.0" y="204.5" width="374" height="154.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kcal for 100g" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68L-rm-3Jh">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. 100.0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aqQ-Ea-1rA">
+                                                <rect key="frame" x="0.0" y="20.5" width="374" height="134"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rE1-sN-DMZ">
+                                        <rect key="frame" x="0.0" y="409" width="374" height="154.5"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Edit">
+                                            <color key="titleColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="t5x-Hs-2jo" kind="unwind" identifier="editFood" unwindAction="unwindToEditFood:" id="0d4-Oh-die"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MoL-W7-0i8">
+                                        <rect key="frame" x="0.0" y="613.5" width="374" height="154.5"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <segue destination="t5x-Hs-2jo" kind="unwind" identifier="cancel" unwindAction="unwindToCancel:" id="9iV-mp-4Lk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="WiR-BD-hCf" firstAttribute="top" secondItem="rYL-2h-znq" secondAttribute="top" id="2bX-0E-cKf"/>
-                            <constraint firstItem="WiR-BD-hCf" firstAttribute="leading" secondItem="bsd-18-Ck7" secondAttribute="leading" id="8zk-Jo-1My"/>
-                            <constraint firstItem="WiR-BD-hCf" firstAttribute="trailing" secondItem="bsd-18-Ck7" secondAttribute="trailing" id="ChO-O9-Htv"/>
-                            <constraint firstItem="bsd-18-Ck7" firstAttribute="top" secondItem="WiR-BD-hCf" secondAttribute="bottom" constant="8" symbolic="YES" id="FH2-mF-YPL"/>
-                            <constraint firstItem="WiR-BD-hCf" firstAttribute="trailing" secondItem="YYL-tm-huh" secondAttribute="trailingMargin" id="mBA-cR-KyE"/>
-                            <constraint firstItem="WiR-BD-hCf" firstAttribute="leading" secondItem="YYL-tm-huh" secondAttribute="leadingMargin" id="zvi-hu-Rja"/>
+                            <constraint firstItem="bKe-tp-Hqj" firstAttribute="bottom" secondItem="UuM-ke-J65" secondAttribute="bottom" constant="-20" id="GfZ-hF-Qak"/>
+                            <constraint firstItem="bKe-tp-Hqj" firstAttribute="top" secondItem="UuM-ke-J65" secondAttribute="top" constant="20" id="bQW-cZ-iTB"/>
+                            <constraint firstItem="bKe-tp-Hqj" firstAttribute="leading" secondItem="UuM-ke-J65" secondAttribute="leading" constant="20" id="j1U-hO-dlr"/>
+                            <constraint firstItem="bKe-tp-Hqj" firstAttribute="trailing" secondItem="UuM-ke-J65" secondAttribute="trailing" constant="-20" id="lpb-fb-WoV"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="rYL-2h-znq"/>
+                        <viewLayoutGuide key="safeArea" id="UuM-ke-J65"/>
                     </view>
-                    <navigationItem key="navigationItem" id="EvB-hb-0bM">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ZJc-nh-5ww">
-                            <connections>
-                                <segue destination="81o-S6-Lxg" kind="unwind" identifier="cancel" unwindAction="cancel:" id="Lym-be-Qyj"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="xjp-Y6-e2t">
-                            <connections>
-                                <segue destination="81o-S6-Lxg" kind="unwind" identifier="addFood" unwindAction="foodAdded:" id="7xH-bL-iXK"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
-                        <outlet property="kCalField" destination="bsd-18-Ck7" id="iQ9-La-RBK"/>
-                        <outlet property="nameField" destination="WiR-BD-hCf" id="Rsg-nL-mzV"/>
+                        <outlet property="caloriesField" destination="aqQ-Ea-1rA" id="Ulh-Z1-M8v"/>
+                        <outlet property="editButton" destination="rE1-sN-DMZ" id="NdJ-Hs-0fy"/>
+                        <outlet property="nameField" destination="oBH-o1-a9i" id="Gzv-8r-HEa"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CM9-qg-pTS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="81o-S6-Lxg" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gxN-iY-52L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="t5x-Hs-2jo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2561" y="1106"/>
+            <point key="canvasLocation" x="2561" y="359"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tU7-bY-77o">
@@ -344,53 +377,10 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="v41-Oq-7N0" kind="relationship" relationship="rootViewController" id="ApT-zF-KH4"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xuO-zb-pFZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1645" y="1106"/>
-        </scene>
-        <!--Edit food-->
-        <scene sceneID="Skt-5K-0gX">
-            <objects>
-                <viewController id="wqG-8D-Q9e" userLabel="Edit food" customClass="EditFoodViewController" customModule="Food_Calculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4oD-y7-pqs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TV6-B9-402">
-                                <rect key="frame" x="20" y="44" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="kCal for 100 g" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gzv-yt-rjj">
-                                <rect key="frame" x="20" y="86" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="TV6-B9-402" firstAttribute="trailing" secondItem="Gzv-yt-rjj" secondAttribute="trailing" id="IhE-PP-rWG"/>
-                            <constraint firstItem="Gzv-yt-rjj" firstAttribute="top" secondItem="TV6-B9-402" secondAttribute="bottom" constant="8" symbolic="YES" id="X1f-Nd-tUq"/>
-                            <constraint firstItem="TV6-B9-402" firstAttribute="leading" secondItem="4oD-y7-pqs" secondAttribute="leadingMargin" id="gC5-7U-DxV"/>
-                            <constraint firstItem="TV6-B9-402" firstAttribute="top" secondItem="ZJu-wo-uCa" secondAttribute="top" id="pkf-4C-69s"/>
-                            <constraint firstItem="TV6-B9-402" firstAttribute="leading" secondItem="Gzv-yt-rjj" secondAttribute="leading" id="trR-O8-6Uc"/>
-                            <constraint firstItem="TV6-B9-402" firstAttribute="trailing" secondItem="4oD-y7-pqs" secondAttribute="trailingMargin" id="ysB-QW-h6G"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="ZJu-wo-uCa"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Edit food" id="LAQ-ag-TxK"/>
-                    <connections>
-                        <outlet property="kCalField" destination="Gzv-yt-rjj" id="2dO-Kh-C2Q"/>
-                        <outlet property="nameField" destination="TV6-B9-402" id="MXq-7l-EdU"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="06L-Ed-dwS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2557.971014492754" y="358.92857142857139"/>
         </scene>
         <!--Daily Summary-->
         <scene sceneID="e2D-uz-zz1">

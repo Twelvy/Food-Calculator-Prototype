@@ -35,7 +35,6 @@
 		252A4A1524A8CB220078252A /* DailySummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A4A1424A8CB220078252A /* DailySummaryViewController.swift */; };
 		252A4A1B24AB64840078252A /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A4A1A24AB64840078252A /* DateCell.swift */; };
 		252A4A1F24AB660F0078252A /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A4A1E24AB660F0078252A /* DateViewController.swift */; };
-		252BB74424A3A0B70072A6D9 /* EditFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252BB74324A3A0B70072A6D9 /* EditFoodViewController.swift */; };
 		253F127024A4D5A400E77836 /* DailyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253F126F24A4D5A400E77836 /* DailyTabBarController.swift */; };
 		253F127224A4E86C00E77836 /* MealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253F127124A4E86C00E77836 /* MealsTableViewController.swift */; };
 		253F127424A4FA5600E77836 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253F127324A4FA5600E77836 /* MealViewController.swift */; };
@@ -54,7 +53,7 @@
 		25B8B7502493B76400870F32 /* FoodDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B8B74F2493B76400870F32 /* FoodDatabase.swift */; };
 		25B8B7522493B93000870F32 /* FoodInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B8B7512493B93000870F32 /* FoodInformation.swift */; };
 		25B8B7542493C01D00870F32 /* FoodDatabaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B8B7532493C01D00870F32 /* FoodDatabaseViewController.swift */; };
-		25B8B7562495C97300870F32 /* AddFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B8B7552495C97300870F32 /* AddFoodViewController.swift */; };
+		25B8B7562495C97300870F32 /* EditFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B8B7552495C97300870F32 /* EditFoodViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,7 +88,6 @@
 		252A4A1624AB61060078252A /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = Frameworks/JTAppleCalendar.framework; sourceTree = "<group>"; };
 		252A4A1A24AB64840078252A /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		252A4A1E24AB660F0078252A /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
-		252BB74324A3A0B70072A6D9 /* EditFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFoodViewController.swift; sourceTree = "<group>"; };
 		253F126F24A4D5A400E77836 /* DailyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTabBarController.swift; sourceTree = "<group>"; };
 		253F127124A4E86C00E77836 /* MealsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsTableViewController.swift; sourceTree = "<group>"; };
 		253F127324A4FA5600E77836 /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
@@ -110,7 +108,7 @@
 		25B8B74F2493B76400870F32 /* FoodDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDatabase.swift; sourceTree = "<group>"; };
 		25B8B7512493B93000870F32 /* FoodInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInformation.swift; sourceTree = "<group>"; };
 		25B8B7532493C01D00870F32 /* FoodDatabaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDatabaseViewController.swift; sourceTree = "<group>"; };
-		25B8B7552495C97300870F32 /* AddFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodViewController.swift; sourceTree = "<group>"; };
+		25B8B7552495C97300870F32 /* EditFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFoodViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,9 +197,8 @@
 				25B8B74F2493B76400870F32 /* FoodDatabase.swift */,
 				25B8B7512493B93000870F32 /* FoodInformation.swift */,
 				25B8B7532493C01D00870F32 /* FoodDatabaseViewController.swift */,
-				25B8B7552495C97300870F32 /* AddFoodViewController.swift */,
+				25B8B7552495C97300870F32 /* EditFoodViewController.swift */,
 				2522A737249D074F00720B7E /* FoodCell.swift */,
-				252BB74324A3A0B70072A6D9 /* EditFoodViewController.swift */,
 				253F126F24A4D5A400E77836 /* DailyTabBarController.swift */,
 				253F127124A4E86C00E77836 /* MealsTableViewController.swift */,
 				253F127324A4FA5600E77836 /* MealViewController.swift */,
@@ -312,9 +309,8 @@
 				2518BDA324AB767C00D0DE8A /* GlobalFunctionsAndExtensions.swift in Sources */,
 				2518BD9924AB767C00D0DE8A /* JTACInteractionMonthFunctions.swift in Sources */,
 				252A4A1524A8CB220078252A /* DailySummaryViewController.swift in Sources */,
-				25B8B7562495C97300870F32 /* AddFoodViewController.swift in Sources */,
+				25B8B7562495C97300870F32 /* EditFoodViewController.swift in Sources */,
 				253F127824A6370D00E77836 /* MealCell.swift in Sources */,
-				252BB74424A3A0B70072A6D9 /* EditFoodViewController.swift in Sources */,
 				2518BDA924AB767C00D0DE8A /* JTACMonthQueryFunctions.swift in Sources */,
 				2518BD9C24AB767C00D0DE8A /* JTACVariables.swift in Sources */,
 				25B8B7372493A9D400870F32 /* AppDelegate.swift in Sources */,
