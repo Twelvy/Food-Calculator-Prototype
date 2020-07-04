@@ -604,9 +604,10 @@
                                         <rect key="frame" x="0.0" y="516" width="374" height="258"/>
                                         <state key="normal" image="questionmark" catalog="system">
                                             <attributedString key="attributedTitle">
-                                                <fragment content="Test">
+                                                <fragment content="Calendar">
                                                     <attributes>
                                                         <font key="NSFont" metaFont="system" size="18"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
