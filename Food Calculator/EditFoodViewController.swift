@@ -22,6 +22,9 @@ class EditFoodViewController : UIViewController, UITextFieldDelegate {
         let app = UIApplication.shared.delegate as! AppDelegate
         database = app.foodDatabase
         
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+        
         if foodInfo != nil {
             nameField.text = foodInfo!.name
             caloriesField.text = String(foodInfo!.kCal)
