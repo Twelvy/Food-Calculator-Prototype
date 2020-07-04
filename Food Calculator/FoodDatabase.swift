@@ -377,6 +377,36 @@ class FoodDatabase {
         sqlite3_finalize(statement)
     }
     
+    func isFoodUsed(_ key: Int) -> Bool {
+        var statement: OpaquePointer? = nil
+        let statementStr = """
+            SELECT EXISTS (
+                SELECT 1 FROM Meals
+                WHERE
+                    foodId=?
+                )
+            """
+        var exists = false
+        if sqlite3_prepare_v2(db, statementStr, -1, &statement, nil) == SQLITE_OK {
+            if sqlite3_bind_int64(statement, 1, sqlite3_int64(key)) != SQLITE_OK {
+                print("Error when binding Id")
+            }
+            else if sqlite3_step(statement) == SQLITE_ROW {
+                let res = sqlite3_column_int(statement, 0)
+                exists = (res == 1)
+            }
+            else {
+                print("Failed to get date")
+            }
+        }
+        else {
+            print("Error when preparing statement")
+        }
+        sqlite3_finalize(statement)
+        
+        return exists
+    }
+    
     // MARK: - Meal database
     
     func getFirstDate() -> Date? {

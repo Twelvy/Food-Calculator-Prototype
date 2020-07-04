@@ -20,6 +20,13 @@ class FoodDatabaseViewController : FoodDatabaseViewControllerBase {
         }
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        guard let foodInfo = getFoodInfoAt(indexPath) else {
+            return super.tableView(tableView, canEditRowAt: indexPath)
+        }
+        return !database!.isFoodUsed(foodInfo.primaryKey)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addFood" {
             let controller = (segue.destination as! UINavigationController).topViewController as! AddFoodViewController

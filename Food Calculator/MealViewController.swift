@@ -44,7 +44,7 @@ class MealViewController : UIViewController, UITableViewDelegate, UITableViewDat
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let mealCell = cell as! MealCell
         let database = getDatabase()
-        let info = database.getMealInfo(date: mealDate!, time: mealTime, index: indexPath.row)
+        let info = database.getMealInfo(date: mealDate!, time: mealTime, index: indexPath.row) // needs at least meal key otherwise we cannot delete it
         mealCell.setInfo(info: info)
         return cell
     }

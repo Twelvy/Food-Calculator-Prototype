@@ -29,13 +29,17 @@ class FoodDatabaseViewControllerBase : UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let foodCell = cell as! FoodCell
-        let food = database!.getFoodInformation(index: indexPath.row)
+        let food = getFoodInfoAt(indexPath)
         foodCell.setInfo(info: food)
         return cell
     }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
+        return false
+    }
+    
+    func getFoodInfoAt(_ indexPath: IndexPath) -> FoodInformation? {
+        return database!.getFoodInformation(index: indexPath.row)
     }
 }
