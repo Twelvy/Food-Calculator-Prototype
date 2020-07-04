@@ -43,12 +43,17 @@ class DailySummaryViewController : UIViewController, UITextFieldDelegate {
             return
         }
         
-        // TODO: test if the textfield will be covered
-        //let frame = firstView.convert(buttons.frame, from:secondView)
-        //let bottom = targetCaloriesField.frame.origin.y + targetCaloriesField.frame.height
+        // test if the textfield will be covered
+        let frameInView = self.view.convert(targetCaloriesField.frame, from: targetCaloriesField.superview)
+        let targetOffset = keyboardSize.height - (self.view.frame.height - (frameInView.origin.y + frameInView.height + 20))
         
-        // move the root view up by the distance of keyboard height
-        self.view.frame.origin.y = 0 - keyboardSize.height
+        if targetOffset > 0 {
+            // move the root view up by the offset
+            self.view.frame.origin.y = 0 - targetOffset
+        }
+        else {
+            self.view.frame.origin.y = 0
+        }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
