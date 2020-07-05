@@ -20,6 +20,8 @@ class DailySummaryViewController : UIViewController, UITextFieldDelegate {
     @IBOutlet weak var extraWeightLabel: UILabel!
     @IBOutlet weak var forwardExtraFoodButton: UIButton!
     
+    private var lastSelectedTextfield: UITextField?
+    
     private var mealDate: Date?
     
     private var selectedFood: FoodInformation?
@@ -37,14 +39,32 @@ class DailySummaryViewController : UIViewController, UITextFieldDelegate {
         updateView()
     }
     
+    // MARK: - Methods to move view when keyboard appears
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        lastSelectedTextfield = textField
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField == lastSelectedTextfield {
+            lastSelectedTextfield = nil
+        }
+        return true
+    }
+    
     @objc func keyboardWillShow(notification: NSNotification) {
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
             // if keyboard size is not available for some reason, dont do anything
             return
         }
         
+        guard let tf = lastSelectedTextfield else {
+            return
+        }
+        
         // test if the textfield will be covered
-        let frameInView = self.view.convert(targetCaloriesField.frame, from: targetCaloriesField.superview)
+        let frameInView = self.view.convert(tf.frame, from: tf.superview)
         let targetOffset = keyboardSize.height - (self.view.frame.height - (frameInView.origin.y + frameInView.height + 20))
         
         if targetOffset > 0 {

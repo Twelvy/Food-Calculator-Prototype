@@ -15,13 +15,18 @@ class EditFoodViewController : UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var caloriesField: UITextField!
     @IBOutlet weak var editButton: UIButton!
     
+    private var lastSelectedTextfield: UITextField? = nil
+    
     private var database: FoodDatabase? = nil;
-    private var foodInfo: FoodInformation?
+    private var foodInfo: FoodInformation? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let app = UIApplication.shared.delegate as! AppDelegate
         database = app.foodDatabase
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(EditFoodViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(EditFoodViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
@@ -40,6 +45,48 @@ class EditFoodViewController : UIViewController, UITextFieldDelegate {
     
     func setFoodToEdit(_ f: FoodInformation?) {
         foodInfo = f
+    }
+    
+    // MARK: - Methods to move view when keyboard appears
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        lastSelectedTextfield = textField
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField == lastSelectedTextfield {
+            lastSelectedTextfield = nil
+        }
+        return true
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            // if keyboard size is not available for some reason, dont do anything
+            return
+        }
+        
+        guard let tf = lastSelectedTextfield else {
+            return
+        }
+        
+        // test if the textfield will be covered
+        let frameInView = self.view.convert(tf.frame, from: tf.superview)
+        let targetOffset = keyboardSize.height - (self.view.frame.height - (frameInView.origin.y + frameInView.height + 20))
+        
+        if targetOffset > 0 {
+            // move the root view up by the offset
+            self.view.frame.origin.y = 0 - targetOffset
+        }
+        else {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        // move back the root view origin to zero
+        self.view.frame.origin.y = 0
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
