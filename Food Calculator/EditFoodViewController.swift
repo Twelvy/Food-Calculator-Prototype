@@ -10,6 +10,7 @@ import UIKit
 
 class EditFoodViewController : UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet private weak var nameField: UITextField!
     @IBOutlet private weak var caloriesField: UITextField!
     @IBOutlet weak var editButton: UIButton!
@@ -29,9 +30,11 @@ class EditFoodViewController : UIViewController, UITextFieldDelegate {
             nameField.text = foodInfo!.name
             caloriesField.text = String(foodInfo!.kCal)
             editButton.setTitle("Edit", for: .normal)
+            titleLabel.text = "Edit food information"
         }
         else {
             editButton.setTitle("Add", for: .normal)
+            titleLabel.text = "Add new food"
         }
     }
     
