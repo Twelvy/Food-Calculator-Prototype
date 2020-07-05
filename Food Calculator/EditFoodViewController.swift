@@ -101,36 +101,28 @@ class EditFoodViewController : UIViewController, UITextFieldDelegate {
         if identifier == "editFood" {
             if !nameField.hasText {
                 let alert = UIAlertController(title: "Missing name", message: "Add name", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-                    NSLog("The \"OK\" alert occured.")
-                }))
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 return false
             }
             // parse calories
             if !caloriesField.hasText {
                 let alert = UIAlertController(title: "Missing calories", message: "Add calories information", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-                    NSLog("The \"OK\" alert occured.")
-                }))
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 return false
             }
             
             guard let calories = Float(caloriesField.text!) else {
                 let alert = UIAlertController(title: "Wrong calories", message: "calories should be a number", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-                    NSLog("The \"OK\" alert occured.")
-                }))
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 return false
             }
             
             if calories < 0.0 {
-                let alert = UIAlertController(title: "Negative calories", message: "Calories should be postive", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-                    NSLog("The \"OK\" alert occured.")
-                }))
+                let alert = UIAlertController(title: "Negative calories", message: "Calories should be positive", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 return false
             }

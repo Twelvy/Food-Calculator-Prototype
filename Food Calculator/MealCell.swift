@@ -10,21 +10,17 @@ import UIKit
 
 class MealCell : UITableViewCell {
     
-    var mealKey: Int = -1
-    var foodKey: Int = -1
-    var mealWeight: Float = 0
+    var mealInfo: MealInfo? = nil
     
     func setInfo(info: MealInfo?) {
+        mealInfo = info
         if info == nil {
             textLabel!.text = "error"
             detailTextLabel!.text = "-- g"
         }
         else {
-            mealKey = info!.mealId
-            foodKey = info!.foodId
-            mealWeight = info!.weight
-            textLabel!.text = info!.foodName
-            detailTextLabel!.text = String(mealWeight) + " g"
+            textLabel!.text = mealInfo!.foodName
+            detailTextLabel!.text = String(mealInfo!.weight) + " g"
         }
     }
 }

@@ -58,7 +58,7 @@ class MealViewController : UIViewController, UITableViewDelegate, UITableViewDat
         if editingStyle == .delete {
             let cell = tableView.cellForRow(at: indexPath) as! MealCell
             let database = getDatabase()
-            database.deleteMeal(key: cell.mealKey)
+            database.deleteMeal(key: cell.mealInfo!.mealId)
             tableView.deleteRows(at: [indexPath], with: .fade)
             (self.tabBarController as? DailyTabBarController)?.onDailyFoodUpdated()
             updateTotalCalories()
@@ -76,10 +76,10 @@ class MealViewController : UIViewController, UITableViewDelegate, UITableViewDat
             guard let newWeight = Float(txt) else {
                 return
             }
-            if mealCell.mealWeight != newWeight {
+            if mealCell.mealInfo!.weight != newWeight {
                 // update weight
                 let database = self.getDatabase()
-                database.editMeal(key: mealCell.mealKey, weight: newWeight)
+                database.editMeal(key: mealCell.mealInfo!.mealId, weight: newWeight)
                 
                 // reload cell
                 self.mealTableView?.reloadRows(at: [indexPath], with: .automatic)
@@ -89,7 +89,7 @@ class MealViewController : UIViewController, UITableViewDelegate, UITableViewDat
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addTextField(configurationHandler: { (textField) in
-            textField.text = String(mealCell.mealWeight)
+            textField.text = String(mealCell.mealInfo!.weight)
             textField.keyboardType = .decimalPad
         })
         self.present(alert, animated: true, completion: nil)
