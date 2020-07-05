@@ -41,6 +41,7 @@
 		253F127624A6342500E77836 /* FoodDatabaseViewControllerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253F127524A6342500E77836 /* FoodDatabaseViewControllerBase.swift */; };
 		253F127824A6370D00E77836 /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253F127724A6370D00E77836 /* MealCell.swift */; };
 		253F127A24A639C700E77836 /* ChooseFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253F127924A639C700E77836 /* ChooseFoodViewController.swift */; };
+		25632CC424B1FD00002FBDDA /* EditWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25632CC324B1FD00002FBDDA /* EditWeightViewController.swift */; };
 		2567001F24AF8B930072A4C0 /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2567001E24AF8B930072A4C0 /* DateHeader.swift */; };
 		25B8B7372493A9D400870F32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B8B7362493A9D400870F32 /* AppDelegate.swift */; };
 		25B8B7392493A9D400870F32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B8B7382493A9D400870F32 /* SceneDelegate.swift */; };
@@ -94,6 +95,7 @@
 		253F127524A6342500E77836 /* FoodDatabaseViewControllerBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDatabaseViewControllerBase.swift; sourceTree = "<group>"; };
 		253F127724A6370D00E77836 /* MealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCell.swift; sourceTree = "<group>"; };
 		253F127924A639C700E77836 /* ChooseFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFoodViewController.swift; sourceTree = "<group>"; };
+		25632CC324B1FD00002FBDDA /* EditWeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWeightViewController.swift; sourceTree = "<group>"; };
 		2567001E24AF8B930072A4C0 /* DateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeader.swift; sourceTree = "<group>"; };
 		25B8B7332493A9D400870F32 /* Food Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B8B7362493A9D400870F32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				252A4A1A24AB64840078252A /* DateCell.swift */,
 				252A4A1E24AB660F0078252A /* DateViewController.swift */,
 				2567001E24AF8B930072A4C0 /* DateHeader.swift */,
+				25632CC324B1FD00002FBDDA /* EditWeightViewController.swift */,
 			);
 			path = "Food Calculator";
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				25B8B7522493B93000870F32 /* FoodInformation.swift in Sources */,
 				2518BD9A24AB767C00D0DE8A /* JTACScrollViewDelegates.swift in Sources */,
 				25B8B7432493A9D400870F32 /* Food_Calculator.xcdatamodeld in Sources */,
+				25632CC424B1FD00002FBDDA /* EditWeightViewController.swift in Sources */,
 				253F127624A6342500E77836 /* FoodDatabaseViewControllerBase.swift in Sources */,
 				253F127424A4FA5600E77836 /* MealViewController.swift in Sources */,
 				2518BD9D24AB767C00D0DE8A /* CalendarEnums.swift in Sources */,

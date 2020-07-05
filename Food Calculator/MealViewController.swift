@@ -65,34 +65,20 @@ class MealViewController : UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    func tableView(_ tableview: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let mealCell = tableview.cellForRow(at: indexPath) as! MealCell
-        let alert = UIAlertController(title: "Edit weight", message: "Change the weight of the food", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Edit", style: .destructive, handler: { _ in
-            guard let txt = alert.textFields?[0].text else {
-                return
-            }
-            // parse txt
-            guard let newWeight = Float(txt) else {
-                return
-            }
-            if mealCell.mealInfo!.weight != newWeight {
-                // update weight
-                let database = self.getDatabase()
-                database.editMeal(key: mealCell.mealInfo!.mealId, weight: newWeight)
-                
-                // reload cell
-                self.mealTableView?.reloadRows(at: [indexPath], with: .automatic)
-                (self.tabBarController as? DailyTabBarController)?.onDailyFoodUpdated()
-                self.updateTotalCalories()
-            }
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addTextField(configurationHandler: { (textField) in
-            textField.text = String(mealCell.mealInfo!.weight)
-            textField.keyboardType = .decimalPad
-        })
-        self.present(alert, animated: true, completion: nil)
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "editWeight" {
+            let mealCell = mealTableView.cellForRow(at: mealTableView.indexPathForSelectedRow!) as! MealCell
+            return mealCell.mealInfo != nil
+        }
+        return true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editWeight" {
+            let mealCell = mealTableView.cellForRow(at: mealTableView.indexPathForSelectedRow!) as! MealCell
+            let controller = segue.destination as! EditWeightViewController
+            controller.setMealToEdit(mealCell.mealInfo)
+        }
     }
     
     func addMeal(foodId: Int) {
@@ -124,5 +110,9 @@ class MealViewController : UIViewController, UITableViewDelegate, UITableViewDat
             return
         }
         addMeal(foodId: foodKey)
+    }
+    
+    @IBAction func unwindToEditWeight(_ unwindSegue: UIStoryboardSegue) {
+        refresh()
     }
 }
