@@ -9,53 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Meals-->
-        <scene sceneID="Bfs-Pu-e39">
-            <objects>
-                <tableViewController id="ENK-1c-6C6" userLabel="Meals" customClass="MealsTableViewController" customModule="Food_Calculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ANn-W1-aPC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="9Uu-V8-Wzs" style="IBUITableViewCellStyleDefault" id="Nfe-tz-xbO">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nfe-tz-xbO" id="wMD-vE-hms">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9Uu-V8-Wzs">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="49e-Tb-3d3" kind="show" identifier="show" id="1so-QC-0Ff"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="ENK-1c-6C6" id="b6e-Cy-NY3"/>
-                            <outlet property="delegate" destination="ENK-1c-6C6" id="DU4-Ev-cnJ"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="Lms-aH-ZjZ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="bTd-87-laI">
-                            <connections>
-                                <action selector="addDay:" destination="ENK-1c-6C6" id="CgQ-H6-yAe"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4TC-N6-BWS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1645" y="-445"/>
-        </scene>
         <!--Daily-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
@@ -498,19 +451,6 @@
             </objects>
             <point key="canvasLocation" x="2561" y="359"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="tU7-bY-77o">
-            <objects>
-                <navigationController id="FpX-1E-NRh" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="X0h-LB-EuM">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xuO-zb-pFZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1645" y="1106"/>
-        </scene>
         <!--Daily Summary-->
         <scene sceneID="e2D-uz-zz1">
             <objects>
@@ -689,19 +629,20 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sNP-39-uJ1">
                                 <rect key="frame" x="20" y="88" width="374" height="774"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1qN-5D-pTC">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Szs-x6-D4h">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="258"/>
-                                        <state key="normal" image="calendar" catalog="system">
+                                        <state key="normal" image="questionmark" catalog="system">
                                             <attributedString key="attributedTitle">
-                                                <fragment content="Meals">
+                                                <fragment content="Calendar">
                                                     <attributes>
                                                         <font key="NSFont" metaFont="system" size="18"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
                                         </state>
                                         <connections>
-                                            <segue destination="ENK-1c-6C6" kind="show" id="IR1-AT-Cm9"/>
+                                            <segue destination="E0i-uj-sii" kind="show" identifier="" id="Dot-z8-pbk"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N7g-Iw-Wak">
@@ -719,21 +660,17 @@
                                             <segue destination="726-l2-EkG" kind="show" id="xC0-8u-7p7"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Szs-x6-D4h">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1qN-5D-pTC">
                                         <rect key="frame" x="0.0" y="516" width="374" height="258"/>
-                                        <state key="normal" image="questionmark" catalog="system">
+                                        <state key="normal" image="calendar" catalog="system">
                                             <attributedString key="attributedTitle">
-                                                <fragment content="Calendar">
+                                                <fragment content="Meals">
                                                     <attributes>
                                                         <font key="NSFont" metaFont="system" size="18"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
                                         </state>
-                                        <connections>
-                                            <segue destination="E0i-uj-sii" kind="show" identifier="" id="Dot-z8-pbk"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -916,7 +853,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CNc-BJ-a7K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1034.7826086956522" y="-1217.4107142857142"/>
+            <point key="canvasLocation" x="1645" y="-445"/>
         </scene>
     </scenes>
     <resources>
@@ -939,6 +876,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="uCP-2Q-4Qx"/>
         <segue reference="Sq5-5D-r7q"/>
-        <segue reference="3iH-dO-tlV"/>
     </inferredMetricsTieBreakers>
 </document>
