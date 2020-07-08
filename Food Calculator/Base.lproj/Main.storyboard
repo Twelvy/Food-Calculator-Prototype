@@ -178,7 +178,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="54k-XZ-uDN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="zzp-ar-o2D" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4399" y="-1173"/>
+            <point key="canvasLocation" x="4400" y="359"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="y7M-BB-gBJ">
@@ -616,7 +616,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p9O-0b-XMk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3479.7101449275365" y="358.92857142857139"/>
+            <point key="canvasLocation" x="3480" y="-1173"/>
         </scene>
         <!--Main-->
         <scene sceneID="bEE-Rs-OjW">
@@ -875,6 +875,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uCP-2Q-4Qx"/>
-        <segue reference="Sq5-5D-r7q"/>
+        <segue reference="Eog-1n-jyI"/>
     </inferredMetricsTieBreakers>
 </document>
