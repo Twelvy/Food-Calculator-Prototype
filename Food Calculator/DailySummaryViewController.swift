@@ -152,7 +152,12 @@ class DailySummaryViewController : UIViewController, UITextFieldDelegate {
         return nil
     }
     
-    @IBAction func addMeal(_ unwindSegue: UIStoryboardSegue) {
+    @IBAction func unwindToCancel(_ unwindSegue: UIStoryboardSegue) {
+        //let sourceViewController = unwindSegue.source
+        // Use data from the view controller which initiated the unwind segue
+    }
+    
+    @IBAction func unwindToAddMeal(_ unwindSegue: UIStoryboardSegue) {
         guard let src = unwindSegue.source as? ChooseFoodViewController,
             let foodKey = src.selectedFoodKey else {
             return

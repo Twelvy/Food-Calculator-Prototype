@@ -100,11 +100,11 @@ class MealViewController : UIViewController, UITableViewDelegate, UITableViewDat
         mealCaloriesLabel?.text = String(kcal) + " kcal"
     }
     
-    @IBAction func cancel(_ unwindSegue: UIStoryboardSegue) {
+    @IBAction func unwindToCancel(_ unwindSegue: UIStoryboardSegue) {
         // nothing to do
     }
     
-    @IBAction func addMeal(_ unwindSegue: UIStoryboardSegue) {
+    @IBAction func unwindToAddMeal(_ unwindSegue: UIStoryboardSegue) {
         guard let src = unwindSegue.source as? ChooseFoodViewController,
             let foodKey = src.selectedFoodKey else {
             return
