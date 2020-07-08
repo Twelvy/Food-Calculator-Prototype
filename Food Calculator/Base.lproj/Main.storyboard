@@ -148,10 +148,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="k6E-Vn-OXX">
-                                <rect key="frame" x="20" y="67.5" width="374" height="740.5"/>
+                                <rect key="frame" x="20" y="67.5" width="374" height="720.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Zng-g3-6P9">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="233.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="227"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqH-uQ-6IJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
@@ -160,7 +160,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1cb-sT-WM0">
-                                                <rect key="frame" x="0.0" y="20.5" width="374" height="213"/>
+                                                <rect key="frame" x="0.0" y="20.5" width="374" height="206.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="374" id="iIv-7z-vf5"/>
                                                 </constraints>
@@ -170,18 +170,33 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dzw-sk-96f">
-                                        <rect key="frame" x="0.0" y="253.5" width="374" height="233.5"/>
+                                        <rect key="frame" x="0.0" y="247" width="374" height="226.5"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Edit">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="zzp-ar-o2D" kind="unwind" identifier="editWeight" unwindAction="unwindToEditWeight:" id="pbr-PF-S77"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g02-AV-2M8">
-                                        <rect key="frame" x="0.0" y="507" width="374" height="233.5"/>
+                                        <rect key="frame" x="0.0" y="493.5" width="374" height="227"/>
                                         <state key="normal" title="Cancel"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="zzp-ar-o2D" kind="unwind" identifier="cancel" unwindAction="unwindToCancel:" id="OvN-20-ALO"/>
                                         </connections>
@@ -196,7 +211,7 @@
                             <constraint firstItem="U6P-GE-nv5" firstAttribute="trailing" secondItem="xK4-2y-oXI" secondAttribute="trailing" id="aeg-c0-XNQ"/>
                             <constraint firstItem="k6E-Vn-OXX" firstAttribute="leading" secondItem="xK4-2y-oXI" secondAttribute="leading" constant="20" id="hOC-5n-aPT"/>
                             <constraint firstItem="k6E-Vn-OXX" firstAttribute="top" secondItem="U6P-GE-nv5" secondAttribute="bottom" constant="20" id="ros-GR-R1R"/>
-                            <constraint firstItem="k6E-Vn-OXX" firstAttribute="bottom" secondItem="xK4-2y-oXI" secondAttribute="bottom" id="rta-WV-AUh"/>
+                            <constraint firstItem="k6E-Vn-OXX" firstAttribute="bottom" secondItem="xK4-2y-oXI" secondAttribute="bottom" constant="-20" id="rta-WV-AUh"/>
                             <constraint firstItem="k6E-Vn-OXX" firstAttribute="trailing" secondItem="xK4-2y-oXI" secondAttribute="trailing" constant="-20" id="z5W-ck-D8H"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xK4-2y-oXI"/>
@@ -430,6 +445,12 @@
                                         <state key="normal" title="Edit">
                                             <color key="titleColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="t5x-Hs-2jo" kind="unwind" identifier="editFood" unwindAction="unwindToEditFood:" id="0d4-Oh-die"/>
                                         </connections>
@@ -437,6 +458,15 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MoL-W7-0i8">
                                         <rect key="frame" x="0.0" y="578" width="374" height="142.5"/>
                                         <state key="normal" title="Cancel"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="t5x-Hs-2jo" kind="unwind" identifier="cancel" unwindAction="unwindToCancel:" id="9iV-mp-4Lk"/>
                                         </connections>
